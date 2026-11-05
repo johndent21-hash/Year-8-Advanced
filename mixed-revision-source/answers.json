@@ -1,0 +1,897 @@
+[
+ {
+  "group": "Topic 1 · Your turn 1 — Squares, powers and square roots (page 1)",
+  "key": "1.1a",
+  "p": "36"
+ },
+ {
+  "group": "Topic 1 · Your turn 1 — Squares, powers and square roots (page 1)",
+  "key": "1.1b",
+  "p": "121"
+ },
+ {
+  "group": "Topic 1 · Your turn 1 — Squares, powers and square roots (page 1)",
+  "key": "1.1c",
+  "p": "0.09"
+ },
+ {
+  "group": "Topic 1 · Your turn 1 — Squares, powers and square roots (page 1)",
+  "key": "1.1d",
+  "p": "81"
+ },
+ {
+  "group": "Topic 1 · Your turn 1 — Squares, powers and square roots (page 1)",
+  "key": "1.1e",
+  "p": "1000"
+ },
+ {
+  "group": "Topic 1 · Your turn 1 — Squares, powers and square roots (page 1)",
+  "key": "1.1f",
+  "p": "9"
+ },
+ {
+  "group": "Topic 1 · Your turn 1 — Squares, powers and square roots (page 1)",
+  "key": "1.1g",
+  "p": "14"
+ },
+ {
+  "group": "Topic 1 · Your turn 1 — Squares, powers and square roots (page 1)",
+  "key": "1.1h",
+  "p": "169"
+ },
+ {
+  "group": "Topic 1 · Your turn 1 — Squares, powers and square roots (page 1)",
+  "key": "1.1i",
+  "p": "13"
+ },
+ {
+  "group": "Topic 1 · Your turn 2 — The hypotenuse (page 1)",
+  "key": "1.2a",
+  "p": "PR"
+ },
+ {
+  "group": "Topic 1 · Your turn 2 — The hypotenuse (page 1)",
+  "key": "1.2b",
+  "p": "XY"
+ },
+ {
+  "group": "Topic 1 · Your turn 2 — The hypotenuse (page 1)",
+  "key": "1.2c",
+  "p": "MN"
+ },
+ {
+  "group": "Topic 1 · Your turn 2 — The hypotenuse (page 1)",
+  "key": "1.2d",
+  "p": "r² = p² + q²"
+ },
+ {
+  "group": "Topic 1 · Your turn 3 — Finding the hypotenuse (page 1)",
+  "key": "1.3a",
+  "p": "10 cm"
+ },
+ {
+  "group": "Topic 1 · Your turn 3 — Finding the hypotenuse (page 1)",
+  "key": "1.3b",
+  "p": "29 m"
+ },
+ {
+  "group": "Topic 1 · Your turn 3 — Finding the hypotenuse (page 1)",
+  "key": "1.3c",
+  "p": "√149 ≈ 12.2 cm"
+ },
+ {
+  "group": "Topic 1 · Your turn 3 — Finding the hypotenuse (page 1)",
+  "key": "1.3d",
+  "p": "3 m"
+ },
+ {
+  "group": "Topic 1 · Your turn 4 — Finding a shorter side (page 2)",
+  "key": "1.4a",
+  "p": "6 cm"
+ },
+ {
+  "group": "Topic 1 · Your turn 4 — Finding a shorter side (page 2)",
+  "key": "1.4b",
+  "p": "20 m"
+ },
+ {
+  "group": "Topic 1 · Your turn 4 — Finding a shorter side (page 2)",
+  "key": "1.4c",
+  "p": "√56 ≈ 7.5 cm"
+ },
+ {
+  "group": "Topic 1 · Your turn 4 — Finding a shorter side (page 2)",
+  "key": "1.4d",
+  "p": "6.5 m"
+ },
+ {
+  "group": "Topic 1 · Your turn 5 — Surds (page 2)",
+  "key": "1.5a",
+  "p": "√8, √30, √45, √2"
+ },
+ {
+  "group": "Topic 1 · Your turn 5 — Surds (page 2)",
+  "key": "1.5b",
+  "p": "5 and 6"
+ },
+ {
+  "group": "Topic 1 · Your turn 5 — Surds (page 2)",
+  "key": "1.5c",
+  "p": "√34 cm ≈ 5.8 cm"
+ },
+ {
+  "group": "Topic 1 · Your turn 6 — Pythagoras in real life (page 2)",
+  "key": "1.6a",
+  "p": "50 m"
+ },
+ {
+  "group": "Topic 1 · Your turn 6 — Pythagoras in real life (page 2)",
+  "key": "1.6b",
+  "p": "√274 ≈ 16.6 cm"
+ },
+ {
+  "group": "Topic 1 · Your turn 6 — Pythagoras in real life (page 2)",
+  "key": "1.6c",
+  "p": "24 m"
+ },
+ {
+  "group": "Topic 1 · Your turn 7 — Is it right-angled? (page 3)",
+  "key": "1.7a",
+  "p": "yes"
+ },
+ {
+  "group": "Topic 1 · Your turn 7 — Is it right-angled? (page 3)",
+  "key": "1.7b",
+  "p": "no"
+ },
+ {
+  "group": "Topic 1 · Your turn 7 — Is it right-angled? (page 3)",
+  "key": "1.7c",
+  "p": "yes"
+ },
+ {
+  "group": "Topic 1 · Your turn 7 — Is it right-angled? (page 3)",
+  "key": "1.7d",
+  "p": "no"
+ },
+ {
+  "group": "Topic 1 · Your turn 7 — Is it right-angled? (page 3)",
+  "key": "1.7e",
+  "p": "yes"
+ },
+ {
+  "group": "Topic 1 · Your turn 7 — Is it right-angled? (page 3)",
+  "key": "1.7f",
+  "p": "yes"
+ },
+ {
+  "group": "Topic 1 · Your turn 8 — Pythagorean triads (page 3)",
+  "key": "1.8a",
+  "p": "yes"
+ },
+ {
+  "group": "Topic 1 · Your turn 8 — Pythagorean triads (page 3)",
+  "key": "1.8b",
+  "p": "15, 20, 25"
+ },
+ {
+  "group": "Topic 1 · Your turn 8 — Pythagorean triads (page 3)",
+  "key": "1.8c",
+  "p": "15; 24"
+ },
+ {
+  "group": "Topic 1 · Your turn 9 — Exam-style practice (page 3)",
+  "key": "1.9a",
+  "p": "37 cm"
+ },
+ {
+  "group": "Topic 1 · Your turn 9 — Exam-style practice (page 3)",
+  "key": "1.9b",
+  "p": "no"
+ },
+ {
+  "group": "Topic 1 · Your turn 9 — Exam-style practice (page 3)",
+  "key": "1.9c",
+  "p": "yes"
+ },
+ {
+  "group": "Topic 1 · Your turn 9 — Exam-style practice (page 3)",
+  "key": "1.9d",
+  "p": "8 cm"
+ },
+ {
+  "group": "Topic 1 · Extension — Simplifying surds (page 3)",
+  "key": "1.10a",
+  "p": "2√2"
+ },
+ {
+  "group": "Topic 1 · Extension — Simplifying surds (page 3)",
+  "key": "1.10b",
+  "p": "2√5"
+ },
+ {
+  "group": "Topic 1 · Extension — Simplifying surds (page 3)",
+  "key": "1.10c",
+  "p": "3√3"
+ },
+ {
+  "group": "Topic 1 · Extension — Simplifying surds (page 3)",
+  "key": "1.10d",
+  "p": "5√3"
+ },
+ {
+  "group": "Topic 2 · Your turn 1 — Equivalent fractions and mixed numerals (page 4)",
+  "key": "2.1a",
+  "p": "8"
+ },
+ {
+  "group": "Topic 2 · Your turn 1 — Equivalent fractions and mixed numerals (page 4)",
+  "key": "2.1b",
+  "p": "3/5"
+ },
+ {
+  "group": "Topic 2 · Your turn 1 — Equivalent fractions and mixed numerals (page 4)",
+  "key": "2.1c",
+  "p": "3/4"
+ },
+ {
+  "group": "Topic 2 · Your turn 1 — Equivalent fractions and mixed numerals (page 4)",
+  "key": "2.1d",
+  "p": "23/7"
+ },
+ {
+  "group": "Topic 2 · Your turn 1 — Equivalent fractions and mixed numerals (page 4)",
+  "key": "2.1e",
+  "p": "4 5/6"
+ },
+ {
+  "group": "Topic 2 · Your turn 1 — Equivalent fractions and mixed numerals (page 4)",
+  "key": "2.1f",
+  "p": "5/8, 2/3, 3/4"
+ },
+ {
+  "group": "Topic 2 · Your turn 2 — Adding and subtracting fractions (page 4)",
+  "key": "2.2a",
+  "p": "5/6"
+ },
+ {
+  "group": "Topic 2 · Your turn 2 — Adding and subtracting fractions (page 4)",
+  "key": "2.2b",
+  "p": "3/10"
+ },
+ {
+  "group": "Topic 2 · Your turn 2 — Adding and subtracting fractions (page 4)",
+  "key": "2.2c",
+  "p": "1 7/12"
+ },
+ {
+  "group": "Topic 2 · Your turn 2 — Adding and subtracting fractions (page 4)",
+  "key": "2.2d",
+  "p": "3 11/12"
+ },
+ {
+  "group": "Topic 2 · Your turn 2 — Adding and subtracting fractions (page 4)",
+  "key": "2.2e",
+  "p": "2 5/8"
+ },
+ {
+  "group": "Topic 2 · Your turn 3 — Multiplying and dividing fractions (page 4)",
+  "key": "2.3a",
+  "p": "6/35"
+ },
+ {
+  "group": "Topic 2 · Your turn 3 — Multiplying and dividing fractions (page 4)",
+  "key": "2.3b",
+  "p": "1/4"
+ },
+ {
+  "group": "Topic 2 · Your turn 3 — Multiplying and dividing fractions (page 4)",
+  "key": "2.3c",
+  "p": "1/2"
+ },
+ {
+  "group": "Topic 2 · Your turn 3 — Multiplying and dividing fractions (page 4)",
+  "key": "2.3d",
+  "p": "1 1/2"
+ },
+ {
+  "group": "Topic 2 · Your turn 3 — Multiplying and dividing fractions (page 4)",
+  "key": "2.3e",
+  "p": "1/6"
+ },
+ {
+  "group": "Topic 2 · Your turn 3 — Multiplying and dividing fractions (page 4)",
+  "key": "2.3f",
+  "p": "2"
+ },
+ {
+  "group": "Topic 2 · Your turn 3 — Multiplying and dividing fractions (page 4)",
+  "key": "2.3g",
+  "p": "15"
+ },
+ {
+  "group": "Topic 2 · Your turn 3 — Multiplying and dividing fractions (page 4)",
+  "key": "2.3h",
+  "p": "6 3/4 cups"
+ },
+ {
+  "group": "Topic 2 · Your turn 4 — Fractions and decimals, rounding (page 5)",
+  "key": "2.4a",
+  "p": "4/5"
+ },
+ {
+  "group": "Topic 2 · Your turn 4 — Fractions and decimals, rounding (page 5)",
+  "key": "2.4b",
+  "p": "9/20"
+ },
+ {
+  "group": "Topic 2 · Your turn 4 — Fractions and decimals, rounding (page 5)",
+  "key": "2.4c",
+  "p": "1/8"
+ },
+ {
+  "group": "Topic 2 · Your turn 4 — Fractions and decimals, rounding (page 5)",
+  "key": "2.4d",
+  "p": "0.6"
+ },
+ {
+  "group": "Topic 2 · Your turn 4 — Fractions and decimals, rounding (page 5)",
+  "key": "2.4e",
+  "p": "0.35"
+ },
+ {
+  "group": "Topic 2 · Your turn 4 — Fractions and decimals, rounding (page 5)",
+  "key": "2.4f",
+  "p": "0.8(3)"
+ },
+ {
+  "group": "Topic 2 · Your turn 4 — Fractions and decimals, rounding (page 5)",
+  "key": "2.4g",
+  "p": "0.(4)"
+ },
+ {
+  "group": "Topic 2 · Your turn 4 — Fractions and decimals, rounding (page 5)",
+  "key": "2.4h",
+  "p": "0.(27)"
+ },
+ {
+  "group": "Topic 2 · Your turn 4 — Fractions and decimals, rounding (page 5)",
+  "key": "2.4i",
+  "p": "5.4"
+ },
+ {
+  "group": "Topic 2 · Your turn 4 — Fractions and decimals, rounding (page 5)",
+  "key": "2.4j",
+  "p": "12.40"
+ },
+ {
+  "group": "Topic 2 · Your turn 5 — Multiplying decimals (page 5)",
+  "key": "2.5a",
+  "p": "0.12"
+ },
+ {
+  "group": "Topic 2 · Your turn 5 — Multiplying decimals (page 5)",
+  "key": "2.5b",
+  "p": "0.054"
+ },
+ {
+  "group": "Topic 2 · Your turn 5 — Multiplying decimals (page 5)",
+  "key": "2.5c",
+  "p": "2"
+ },
+ {
+  "group": "Topic 2 · Your turn 5 — Multiplying decimals (page 5)",
+  "key": "2.5d",
+  "p": "0.72"
+ },
+ {
+  "group": "Topic 2 · Your turn 5 — Multiplying decimals (page 5)",
+  "key": "2.5e",
+  "p": "0.48"
+ },
+ {
+  "group": "Topic 2 · Your turn 5 — Multiplying decimals (page 5)",
+  "key": "2.5f",
+  "p": "0.9"
+ },
+ {
+  "group": "Topic 2 · Your turn 6 — Dividing decimals (page 5)",
+  "key": "2.6a",
+  "p": "9"
+ },
+ {
+  "group": "Topic 2 · Your turn 6 — Dividing decimals (page 5)",
+  "key": "2.6b",
+  "p": "12"
+ },
+ {
+  "group": "Topic 2 · Your turn 6 — Dividing decimals (page 5)",
+  "key": "2.6c",
+  "p": "90"
+ },
+ {
+  "group": "Topic 2 · Your turn 6 — Dividing decimals (page 5)",
+  "key": "2.6d",
+  "p": "7"
+ },
+ {
+  "group": "Topic 2 · Your turn 6 — Dividing decimals (page 5)",
+  "key": "2.6e",
+  "p": "30"
+ },
+ {
+  "group": "Topic 2 · Your turn 6 — Dividing decimals (page 5)",
+  "key": "2.6f",
+  "p": "31.5"
+ },
+ {
+  "group": "Topic 2 · Your turn 7 — Decimals in real life (page 5)",
+  "key": "2.7a",
+  "p": "$216.80"
+ },
+ {
+  "group": "Topic 2 · Your turn 7 — Decimals in real life (page 5)",
+  "key": "2.7b",
+  "p": "$2.80"
+ },
+ {
+  "group": "Topic 2 · Your turn 7 — Decimals in real life (page 5)",
+  "key": "2.7c",
+  "p": "$33.05"
+ },
+ {
+  "group": "Topic 2 · Your turn 8 — Fractions, decimals and percentages (page 6)",
+  "key": "2.8a",
+  "p": "1/4 = 0.25 = 25%"
+ },
+ {
+  "group": "Topic 2 · Your turn 8 — Fractions, decimals and percentages (page 6)",
+  "key": "2.8b",
+  "p": "3/5 = 0.6 = 60%"
+ },
+ {
+  "group": "Topic 2 · Your turn 8 — Fractions, decimals and percentages (page 6)",
+  "key": "2.8c",
+  "p": "3/25 = 0.12 = 12%"
+ },
+ {
+  "group": "Topic 2 · Your turn 8 — Fractions, decimals and percentages (page 6)",
+  "key": "2.8d",
+  "p": "7/8 = 0.875 = 87.5%"
+ },
+ {
+  "group": "Topic 2 · Your turn 8 — Fractions, decimals and percentages (page 6)",
+  "key": "2.8e",
+  "p": "1/40 = 0.025 = 2.5%"
+ },
+ {
+  "group": "Topic 2 · Your turn 9 — Percentage of a quantity (page 6)",
+  "key": "2.9a",
+  "p": "7"
+ },
+ {
+  "group": "Topic 2 · Your turn 9 — Percentage of a quantity (page 6)",
+  "key": "2.9b",
+  "p": "9"
+ },
+ {
+  "group": "Topic 2 · Your turn 9 — Percentage of a quantity (page 6)",
+  "key": "2.9c",
+  "p": "34"
+ },
+ {
+  "group": "Topic 2 · Your turn 9 — Percentage of a quantity (page 6)",
+  "key": "2.9d",
+  "p": "$30.00"
+ },
+ {
+  "group": "Topic 2 · Your turn 9 — Percentage of a quantity (page 6)",
+  "key": "2.9e",
+  "p": "24"
+ },
+ {
+  "group": "Topic 2 · Your turn 9 — Percentage of a quantity (page 6)",
+  "key": "2.9f",
+  "p": "56"
+ },
+ {
+  "group": "Topic 2 · Your turn 9 — Percentage of a quantity (page 6)",
+  "key": "2.9g",
+  "p": "16"
+ },
+ {
+  "group": "Topic 2 · Your turn 10 — One quantity as a percentage of another (page 6)",
+  "key": "2.10a",
+  "p": "85%"
+ },
+ {
+  "group": "Topic 2 · Your turn 10 — One quantity as a percentage of another (page 6)",
+  "key": "2.10b",
+  "p": "40%"
+ },
+ {
+  "group": "Topic 2 · Your turn 10 — One quantity as a percentage of another (page 6)",
+  "key": "2.10c",
+  "p": "25%"
+ },
+ {
+  "group": "Topic 2 · Your turn 11 — Percentage increase and decrease (page 6)",
+  "key": "2.11a",
+  "p": "$66.00"
+ },
+ {
+  "group": "Topic 2 · Your turn 11 — Percentage increase and decrease (page 6)",
+  "key": "2.11b",
+  "p": "200 kg"
+ },
+ {
+  "group": "Topic 2 · Your turn 11 — Percentage increase and decrease (page 6)",
+  "key": "2.11c",
+  "p": "$31.50"
+ },
+ {
+  "group": "Topic 2 · Your turn 11 — Percentage increase and decrease (page 6)",
+  "key": "2.11d",
+  "p": "180"
+ },
+ {
+  "group": "Topic 3 · Your turn 1 — The language of algebra (page 7)",
+  "key": "3.1a",
+  "p": "6; −1; 4; 3"
+ },
+ {
+  "group": "Topic 3 · Your turn 1 — The language of algebra (page 7)",
+  "key": "3.1b",
+  "p": "5y"
+ },
+ {
+  "group": "Topic 3 · Your turn 1 — The language of algebra (page 7)",
+  "key": "3.1c",
+  "p": "3ab"
+ },
+ {
+  "group": "Topic 3 · Your turn 1 — The language of algebra (page 7)",
+  "key": "3.1d",
+  "p": "m²"
+ },
+ {
+  "group": "Topic 3 · Your turn 1 — The language of algebra (page 7)",
+  "key": "3.1e",
+  "p": "2p²"
+ },
+ {
+  "group": "Topic 3 · Your turn 1 — The language of algebra (page 7)",
+  "key": "3.1f",
+  "p": "k/6"
+ },
+ {
+  "group": "Topic 3 · Your turn 1 — The language of algebra (page 7)",
+  "key": "3.1g",
+  "p": "4 × m × n"
+ },
+ {
+  "group": "Topic 3 · Your turn 1 — The language of algebra (page 7)",
+  "key": "3.1h",
+  "p": "3 × c × c"
+ },
+ {
+  "group": "Topic 3 · Your turn 2 — Words to algebra (page 7)",
+  "key": "3.2a",
+  "p": "n + 7"
+ },
+ {
+  "group": "Topic 3 · Your turn 2 — Words to algebra (page 7)",
+  "key": "3.2b",
+  "p": "4n"
+ },
+ {
+  "group": "Topic 3 · Your turn 2 — Words to algebra (page 7)",
+  "key": "3.2c",
+  "p": "n − 3"
+ },
+ {
+  "group": "Topic 3 · Your turn 2 — Words to algebra (page 7)",
+  "key": "3.2d",
+  "p": "n/5"
+ },
+ {
+  "group": "Topic 3 · Your turn 2 — Words to algebra (page 7)",
+  "key": "3.2e",
+  "p": "2n + 1"
+ },
+ {
+  "group": "Topic 3 · Your turn 2 — Words to algebra (page 7)",
+  "key": "3.2f",
+  "p": "n + 1"
+ },
+ {
+  "group": "Topic 3 · Your turn 2 — Words to algebra (page 7)",
+  "key": "3.2g",
+  "p": "3(x + y)"
+ },
+ {
+  "group": "Topic 3 · Your turn 3 — Substitution (page 7)",
+  "key": "3.3a",
+  "p": "17"
+ },
+ {
+  "group": "Topic 3 · Your turn 3 — Substitution (page 7)",
+  "key": "3.3b",
+  "p": "6"
+ },
+ {
+  "group": "Topic 3 · Your turn 3 — Substitution (page 7)",
+  "key": "3.3c",
+  "p": "29"
+ },
+ {
+  "group": "Topic 3 · Your turn 3 — Substitution (page 7)",
+  "key": "3.3d",
+  "p": "8"
+ },
+ {
+  "group": "Topic 3 · Your turn 3 — Substitution (page 7)",
+  "key": "3.3e",
+  "p": "67"
+ },
+ {
+  "group": "Topic 3 · Your turn 3 — Substitution (page 7)",
+  "key": "3.3f",
+  "p": "2"
+ },
+ {
+  "group": "Topic 3 · Your turn 3 — Substitution (page 7)",
+  "key": "3.3g",
+  "p": "9"
+ },
+ {
+  "group": "Topic 3 · Your turn 3 — Substitution (page 7)",
+  "key": "3.3h",
+  "p": "−14"
+ },
+ {
+  "group": "Topic 3 · Your turn 3 — Substitution (page 7)",
+  "key": "3.3i",
+  "p": "49"
+ },
+ {
+  "group": "Topic 3 · Your turn 3 — Substitution (page 7)",
+  "key": "3.3j",
+  "p": "$195.00; $172.50"
+ },
+ {
+  "group": "Topic 3 · Your turn 4 — Collecting like terms (page 8)",
+  "key": "3.4a",
+  "p": "8a"
+ },
+ {
+  "group": "Topic 3 · Your turn 4 — Collecting like terms (page 8)",
+  "key": "3.4b",
+  "p": "8k"
+ },
+ {
+  "group": "Topic 3 · Your turn 4 — Collecting like terms (page 8)",
+  "key": "3.4c",
+  "p": "5p + 4"
+ },
+ {
+  "group": "Topic 3 · Your turn 4 — Collecting like terms (page 8)",
+  "key": "3.4d",
+  "p": "7x + 2y"
+ },
+ {
+  "group": "Topic 3 · Your turn 4 — Collecting like terms (page 8)",
+  "key": "3.4e",
+  "p": "3p + 3q"
+ },
+ {
+  "group": "Topic 3 · Your turn 4 — Collecting like terms (page 8)",
+  "key": "3.4f",
+  "p": "4ab"
+ },
+ {
+  "group": "Topic 3 · Your turn 4 — Collecting like terms (page 8)",
+  "key": "3.4g",
+  "p": "−x, 7x"
+ },
+ {
+  "group": "Topic 3 · Your turn 4 — Collecting like terms (page 8)",
+  "key": "3.4h",
+  "p": "7y² + 3y"
+ },
+ {
+  "group": "Topic 3 · Your turn 4 — Collecting like terms (page 8)",
+  "key": "3.4i",
+  "p": "−3m − 3"
+ },
+ {
+  "group": "Topic 3 · Your turn 4 — Collecting like terms (page 8)",
+  "key": "3.4j",
+  "p": "8x + 4"
+ },
+ {
+  "group": "Topic 3 · Your turn 5 — Multiplying terms (page 8)",
+  "key": "3.5a",
+  "p": "15k"
+ },
+ {
+  "group": "Topic 3 · Your turn 5 — Multiplying terms (page 8)",
+  "key": "3.5b",
+  "p": "14pq"
+ },
+ {
+  "group": "Topic 3 · Your turn 5 — Multiplying terms (page 8)",
+  "key": "3.5c",
+  "p": "12y²"
+ },
+ {
+  "group": "Topic 3 · Your turn 5 — Multiplying terms (page 8)",
+  "key": "3.5d",
+  "p": "−12ab"
+ },
+ {
+  "group": "Topic 3 · Your turn 5 — Multiplying terms (page 8)",
+  "key": "3.5e",
+  "p": "30mn"
+ },
+ {
+  "group": "Topic 3 · Your turn 5 — Multiplying terms (page 8)",
+  "key": "3.5f",
+  "p": "12x²"
+ },
+ {
+  "group": "Topic 3 · Your turn 6 — Dividing terms (page 8)",
+  "key": "3.6a",
+  "p": "3m"
+ },
+ {
+  "group": "Topic 3 · Your turn 6 — Dividing terms (page 8)",
+  "key": "3.6b",
+  "p": "3x"
+ },
+ {
+  "group": "Topic 3 · Your turn 6 — Dividing terms (page 8)",
+  "key": "3.6c",
+  "p": "3b"
+ },
+ {
+  "group": "Topic 3 · Your turn 6 — Dividing terms (page 8)",
+  "key": "3.6d",
+  "p": "2k"
+ },
+ {
+  "group": "Topic 3 · Your turn 6 — Dividing terms (page 8)",
+  "key": "3.6e",
+  "p": "−5m"
+ },
+ {
+  "group": "Topic 3 · Your turn 7 — Reasoning with algebra (page 8)",
+  "key": "3.7a",
+  "p": "no"
+ },
+ {
+  "group": "Topic 3 · Your turn 7 — Reasoning with algebra (page 8)",
+  "key": "3.7b",
+  "p": "4m"
+ },
+ {
+  "group": "Topic 3 · Your turn 7 — Reasoning with algebra (page 8)",
+  "key": "3.7c",
+  "p": "3a"
+ },
+ {
+  "group": "Topic 3 · Your turn 7 — Reasoning with algebra (page 8)",
+  "key": "3.7d",
+  "p": "15x²"
+ },
+ {
+  "group": "Topic 3 · Your turn 7 — Reasoning with algebra (page 8)",
+  "key": "3.7e",
+  "p": "no"
+ },
+ {
+  "group": "Topic 3 · Your turn 8 — Expanding brackets (page 9)",
+  "key": "3.8a",
+  "p": "6m + 12"
+ },
+ {
+  "group": "Topic 3 · Your turn 8 — Expanding brackets (page 9)",
+  "key": "3.8b",
+  "p": "12k − 15"
+ },
+ {
+  "group": "Topic 3 · Your turn 8 — Expanding brackets (page 9)",
+  "key": "3.8c",
+  "p": "−2y − 16"
+ },
+ {
+  "group": "Topic 3 · Your turn 8 — Expanding brackets (page 9)",
+  "key": "3.8d",
+  "p": "a² − 9a"
+ },
+ {
+  "group": "Topic 3 · Your turn 8 — Expanding brackets (page 9)",
+  "key": "3.8e",
+  "p": "8x + 7"
+ },
+ {
+  "group": "Topic 3 · Your turn 8 — Expanding brackets (page 9)",
+  "key": "3.8f",
+  "p": "7p + 4"
+ },
+ {
+  "group": "Topic 3 · Your turn 9 — Factorising (page 9)",
+  "key": "3.9a",
+  "p": "4(x + 2)"
+ },
+ {
+  "group": "Topic 3 · Your turn 9 — Factorising (page 9)",
+  "key": "3.9b",
+  "p": "3(3m − 2)"
+ },
+ {
+  "group": "Topic 3 · Your turn 9 — Factorising (page 9)",
+  "key": "3.9c",
+  "p": "6(2y + 3)"
+ },
+ {
+  "group": "Topic 3 · Your turn 9 — Factorising (page 9)",
+  "key": "3.9d",
+  "p": "k(k − 7)"
+ },
+ {
+  "group": "Topic 3 · Your turn 9 — Factorising (page 9)",
+  "key": "3.9e",
+  "p": "7p(2q + 3)"
+ },
+ {
+  "group": "Mixed exam check — all three topics (page 9)",
+  "key": "3.10a",
+  "p": "5a − 4b"
+ },
+ {
+  "group": "Mixed exam check — all three topics (page 9)",
+  "key": "3.10b",
+  "p": "12m − 8"
+ },
+ {
+  "group": "Mixed exam check — all three topics (page 9)",
+  "key": "3.10c",
+  "p": "22"
+ },
+ {
+  "group": "Mixed exam check — all three topics (page 9)",
+  "key": "3.10d",
+  "p": "34 cm"
+ },
+ {
+  "group": "Mixed exam check — all three topics (page 9)",
+  "key": "3.10e",
+  "p": "0.056"
+ },
+ {
+  "group": "Mixed exam check — all three topics (page 9)",
+  "key": "3.10f",
+  "p": "80"
+ },
+ {
+  "group": "Mixed exam check — all three topics (page 9)",
+  "key": "3.10g",
+  "p": "162"
+ },
+ {
+  "group": "Mixed exam check — all three topics (page 9)",
+  "key": "3.10h",
+  "p": "3 1/4"
+ },
+ {
+  "group": "Mixed exam check — all three topics (page 9)",
+  "key": "3.10i",
+  "p": "no"
+ },
+ {
+  "group": "Mixed exam check — all three topics (page 9)",
+  "key": "3.10j",
+  "p": "$162.00"
+ }
+]
