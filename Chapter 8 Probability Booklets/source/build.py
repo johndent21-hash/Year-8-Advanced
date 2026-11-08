@@ -6,18 +6,17 @@ import sys, re, os
 sys.path.insert(0, '.')
 from layout import *
 from engine import lesson_pages, answer_block
-import l1, l2, l3, l4, l5, l6, e1, e2
+import l1, l2, l3, l4, l5, l6
 import back
 from pm import fr, Fr
 
 STD_L = [l1.LESSON, l2.LESSON, l3.LESSON, l4.LESSON, l5.LESSON, l6.LESSON]
-EXT_L = STD_L + [e1.LESSON, e2.LESSON]
+EXT_L = STD_L  # v3: no Stage 5 lessons (E1 Venn, E2 two-way tables removed)
 
 VARIANTS = {
     'std_student': dict(book='std', mode='student', file='Yr8_Ch8_Probability_Lesson_Booklet'),
     'std_teacher': dict(book='std', mode='teacher', file='Yr8_Ch8_Probability_Lesson_Booklet_Teacher_Copy'),
     'ext_student': dict(book='ext', mode='student', file='Yr8_Ch8_Probability_Extension_Lesson_Booklet'),
-    'ext_selfstudy': dict(book='ext', mode='selfstudy', file='Yr8_Ch8_Probability_Extension_Lesson_Booklet_Self_Study'),
     'ext_teacher': dict(book='ext', mode='teacher', file='Yr8_Ch8_Probability_Extension_Lesson_Booklet_Teacher_Copy'),
 }
 
@@ -41,14 +40,12 @@ def cover(book, mode, toc_rows, back_rows):
     toc = ''.join(f'<span class="n{" x" if n.startswith("E") else ""}">{n}</span><span>{t}</span><span class="p">{p}</span>' for n, t, p in toc_rows)
     toc += f'<span class="n">+</span><span>At the back: {back_rows}</span><span></span>'
     if book == 'std':
-        levels = '<p>Page 1 of each lesson is <b>Easy ●</b>, page 2 is <b>Medium ●●</b> and page 3 is <b>Hard ●●●</b>: a harder example, mixed questions (a tag shows an earlier lesson or year) and worded problems. A question tagged <b class="maroon">Extension</b> uses Stage 5 wording.</p>'
+        levels = '<p>Page 1 of each lesson is <b>Easy ●</b>, page 2 is <b>Medium ●●</b> and page 3 is <b>Hard ●●●</b>: a harder example, mixed questions (a tag shows an earlier lesson or year) and worded problems.</p>'
     else:
-        levels = ('<p>Your notes and examples match the main workbook, so you follow the class lesson, then do these harder questions: page 1 <b>Medium ●●</b>, page 2 <b>Hard ●●●</b>, page 3 <b>Going further</b>. '
-                  + ('E1 and E2 are <b>self-study</b>: their key ideas are printed and their examples are worked for you.' if mode == 'selfstudy' else 'E1 and E2 are extra lessons in Stage 5 Path content.') + '</p>')
+        levels = '<p>Your notes and examples match the main workbook, so you follow the class lesson, then do these harder questions: page 1 <b>Medium ●●</b>, page 2 <b>Hard ●●●</b>, page 3 <b>Going further</b>. Everything is Stage 4 content.</p>'
     how = ('<p>Each lesson is <b>three pages</b>. Copy your teacher’s <b>notes</b>, then work through <b>We do</b> (dark boxes: we solve these together; copy every step) '
            'and <b>You do</b> (your turn, one round at a time). Rate each success criterion at the end.</p>' + levels
            + '<p class="small"><i>NSW Mathematics K–10 Syllabus</i> (2022), Stage 4: MA4-PRO-C-01'
-           + ('; extension (Stage 5 Path): MA5-PRO-P-01' if book == 'ext' else '')
            + '. We acknowledge the Bundjalung people, the Traditional Custodians of the land on which we learn.</p>')
     inner = (f'<div class="art"></div><div class="ccard"><img class="logo" src="img/logo.jpg">'
              f'<div class="meta">Mathematics<br>Year 8<br>{pill}</div>'
@@ -241,11 +238,11 @@ COVERAGE = [
     ('', 'Q12 captain; Q13 rain 85%; Q14 complement of winning', 'L3 W3 (std); L3 Round 4; L3 Ex 2c'),
     ('', 'Q15 coin grid game', 'L3 W2 (std), W3 (ext)'),
     ('', 'Q16 PROBABILITY; Q17 washing up; Q18 4-digit numbers', 'L3 page 3 Q6 (std), Round 6 (ext); Review R10 (std); L2 W1 (ext), Review R12 (std)'),
-    ('8.03 Venn diagrams*', 'Q1–Q8', 'E1 (extension only): Ex 1, Rounds 1–6, page 3 Q1'),
-    ('8.04 Two-way tables*', 'Q1–Q7', 'E2 (extension only): Ex 1–2, Rounds 1–6, page 3 Q1–2'),
+    ('8.03 Venn diagrams*', 'Q1–Q8', 'Not included (Stage 5 Path)'),
+    ('8.04 Two-way tables*', 'Q1–Q7', 'Not included (Stage 5 Path)'),
     ('8.05 Probability problems', 'Q1–Q9, Q13', 'L4 Ex 1–2, Rounds 1–6 (std and ext); L3 Round 4 (eggs)'),
-    ('', 'Q10* tennis', 'L4 page 3 Q1–2 (std); L4 Round 3 (ext)'),
-    ('', 'Q11* camp Venn; Q12* hockey/judo', 'E1 page 3 Q2; E2 Round 6 (extension only)'),
+    ('', 'Q10* tennis', 'L4 page 3 Q1–2 (std); L4 Round 3 (ext), rewritten as single-event questions'),
+    ('', 'Q11* camp Venn; Q12* hockey/judo', 'Not included (Stage 5 Path)'),
     ('8.06 Observed and expected', 'Q1 Harper’s die', 'L5 Ex 1a–b; L6 Ex 2a'),
     ('', 'Q2, Q5 coin and die experiments', 'L5 Round 6; L6 Ex 1b, Rounds 3 and 6'),
     ('', 'Q3 Vinh’s spinner', 'L5 Ex 1c, Round 3; L6 Ex 1c, Round 2'),
@@ -253,15 +250,15 @@ COVERAGE = [
     ('', 'Q6 Sefina; Q7 die 80 rolls', 'L5 Ex 1d; L5 Ex 2c, L6 page 3 Q1–2'),
     ('', 'Q8 dice sums', 'L5 page 3 Q2–4 (std), Round 5 (ext); L6 Round 6 (ext)'),
     ('Technology and investigations', 'rolling a die, tossing a coin, family of 4', 'L5 Round 6, W3 (std), W1 (ext); L6 Round 6'),
-    ('Test yourself 8', 'Q1–Q6, Q10–Q11; Q7–Q9*', 'L1–L6 and review; E1 page 3 Q3, E2 Rounds 4–5'),
+    ('Test yourself 8', 'Q1–Q6, Q10–Q11; Q7–Q9*', 'L1–L6 and review; Q7–Q9 not included (Stage 5 Path)'),
 ]
 
 
 def coverage_page(footer, pno):
     rows = ''.join(f'<tr><td>{a}</td><td>{b}</td><td>{c}</td></tr>' for a, b, c in COVERAGE)
     note = ('<div class="callout"><b class="k">Not included</b> Two-up (Did you know?) and lotto contexts (left out by choice), Power plus (not selected), '
-            'Mental skills 8 (whole-number skills, not probability). * marks Year 9 path (Stage 5 Path MA5-PRO-P-01) content, which appears only in the extension booklet. '
-            'The 2022 syllabus places ‘at least / at most’ wording in Stage 5 Path; the textbook uses it in 8.01–8.02, so the standard booklet tags those questions <b class="maroon">Extension</b>.</div>')
+            'Mental skills 8 (whole-number skills, not probability). * marks textbook Year 9 path content. The 2022 syllabus places Venn diagrams, two-way tables, ‘at least / at most’, ‘and’, inclusive and exclusive ‘or’ (MA5-PRO-P-01) and multistage experiments (MA5-PRO-C-01) in Stage 5, so neither booklet includes them. '
+            'Where the textbook uses ‘at least’ in 8.01–8.02, the questions are reworded (e.g. ‘a number greater than 7’).</div>')
     return page('<div class="bar maroon"><span>TEXTBOOK COVERAGE</span><span class="r">New Century Maths 8, Chapter 8: where each exercise’s skills appear (questions are rewritten, not copied)</span></div>'
                 f'<table class="cov"><tr><th>Section</th><th>Textbook questions</th><th>Where in this booklet</th></tr>{rows}</table>{note}', footer, pno)
 

@@ -158,7 +158,7 @@ ext_p1 = [
         Q('A card is drawn from a deck. Write the complement of ‘a heart’.', '', 'Choosing a diamond, club or spade'),
     ], h=24, ln=[('Complement', ''), ('', '')]),
     R('a fair die is rolled once. Find P(E) and P(not E) for each event E.', 4, [
-        die_pair('at least 2 (2 or more)', lambda x: x >= 2), die_pair('at most 4 (4 or less)', lambda x: x <= 4),
+        die_pair('a number greater than 1', lambda x: x > 1), die_pair('a number less than 5', lambda x: x < 5),
         die_pair('a multiple of 3', lambda x: x % 3 == 0), die_pair('a number greater than 6', lambda x: x > 6),
     ], h=28, ln=[('P(E) =', ''), ('P(not E) =', '')]),
 ]
@@ -172,7 +172,7 @@ ext_p2 = [
     R('a jar has 40 red, 25 blue, 50 black and 15 white jelly beans. One is taken without looking. Find each probability in simplest form.', 3, [
         Q('Find the probability that it is not yellow.', '', '1 (there are no yellow jelly beans)'),
         Q('Find the probability that it is not red.', '', f'1 − {frs(40, NJB)} = {show(NJB - 40, NJB)}'),
-        Q('Find the probability that it is not black and not white.', '', f'black or white = 65, so not = {show(NJB - 65, NJB)}'),
+        Q('Find the probability that it is not black.', '', f'1 − {frs(50, NJB)} = {show(NJB - 50, NJB)}'),
     ], h=24, ln=[('Working', ''), ('Answer', '')]),
     R('the probabilities of all the outcomes add to 1. Find the missing probability.', 3, [
         Q('Tomorrow will be sunny, cloudy or rainy. P(sunny) = 0.45 and P(cloudy) = 0.3. Find P(rainy).', '', dec(1 - Fr(45, 100) - Fr(3, 10))),
@@ -182,7 +182,7 @@ ext_p2 = [
     R('one tile is picked from P R O B A B I L I T Y without looking. Find each probability.', 3, [
         Q('Find the probability that it is not a P.', '', show(10, 11)),
         Q('Find the probability that it is not a vowel.', '', show(11 - pv, 11)),
-        Q('Find the probability that it is not an A and not a B.', '', f'A or B = 3 tiles, so {show(8, 11)}'),
+        Q('Find the probability that it is not a B.', '', f'B is on 2 tiles, so {show(9, 11)}'),
     ], h=22, ln=[('Working', ''), ('Answer', '')], info=tiles('PROBABILITY', 7)),
 ]
 
@@ -204,7 +204,7 @@ EXT = dict(
           f'D ({frs(110, 560)} = {fr(Fr(110, 560))})'),
         Q('A spinner is only red, blue or green. P(red) is twice P(blue), and P(green) = 0.1. Find P(red).', '',
           f'3 × P(blue) = 0.9, so P(blue) = 0.3 and P(red) = {dec(solve_red())}'),
-        Q('The probability that E does not happen is three times the probability that it does. Find P(E).', '', f'4 × P(E) = 1, so P(E) = {fr(Fr(1, 4))}'),
+        Q('The probability that a train is on time is 0.83. Find the probability that it is not on time. Write it as a percentage.', '', '1 − 0.83 = 0.17 = 17%'),
         Q('A bag holds 50 counters. P(not red) = 0.64. How many red counters are in the bag?', '', f'P(red) = 0.36; 0.36 × 50 = {Fr(36, 100) * 50}'),
         Q('A 2-digit number (10 to 99) is picked at random. Find the probability that it is not a multiple of 10.', '',
           f'90 numbers, 9 multiples of 10: {show(81, 90)}'),

@@ -29,7 +29,8 @@ FACTS_STD = [
     '<b>Expected frequency</b> = probability × number of trials <span class="blue">(L6)</span>',
     '<b>Fair or biased?</b> Close to expected: probably fair. Far off over many trials: probably biased <span class="blue">(L6)</span>',
 ]
-FACTS_EXT = FACTS_STD + [
+FACTS_EXT = FACTS_STD
+_OLD_EXT_FACTS = [
     '<b class="x">Venn diagram</b>: A and B = the overlap; A or B = inside either circle; not both = the outer parts; mutually exclusive = no overlap <span class="maroon">(E1)</span>',
     '<b class="x">Two-way table</b>: each cell is an ‘and’; missing cell = total − known cells; P = cell ÷ grand total <span class="maroon">(E2)</span>',
 ]
@@ -48,8 +49,8 @@ AWAY = {
             '<p><b>Step 1</b> ‘No rain’ is the complement of ‘rain’.</p><p><b>Step 2</b> P(no rain) = 1 − 0.15 = <b>0.85</b></p>'),
            ('P(not E) with fractions', 'A pack has 10 red, 6 yellow and 4 green cards. Find P(not yellow).',
             f'<p><b>Step 1</b> P(yellow) = {frs(6, 20)} = {fr(Fr(3, 10))}</p><p><b>Step 2</b> P(not yellow) = 1 − {fr(Fr(3, 10))} = <b>{fr(Fr(7, 10))}</b></p>')],
-    'L4': [('an ‘or’ problem', 'A number from 1 to 15 is chosen. Find P(a multiple of 3 or 5).',
-            f'<p><b>Step 1</b> List: {{3, 5, 6, 9, 10, 12, 15}} (15 once).</p><p><b>Step 2</b> 7 of 15: P = <b>{fr(Fr(7, 15))}</b></p>'),
+    'L4': [('an ‘or’ problem', 'A number from 1 to 20 is chosen. Find P(a number less than 3 or greater than 17).',
+            f'<p><b>Step 1</b> List: {{1, 2, 18, 19, 20}}.</p><p><b>Step 2</b> 5 of 20: P = {frs(5, 20)} = <b>{fr(Fr(1, 4))}</b></p>'),
            ('no memory', 'A coin has shown tails 7 times in a row. Find P(tails next).',
             f'<p>Each toss is a fresh start: the coin does not remember.</p><p>P(tails) = <b>{fr(Fr(1, 2))}</b></p>')],
     'L5': [('observed probability', 'A die is rolled 60 times; 2 comes up 15 times. Find the observed P(2).',
@@ -93,36 +94,36 @@ REVIEW_STD = [
 mult5_3dig = sum(1 for x in range(100, 1000) if x % 5 == 0)
 m35_30 = [x for x in range(1, 31) if x % 3 == 0 or x % 5 == 0]
 REVIEW_EXT = [
-    ('L1', 'A die is rolled. Put these in order from least to most likely: A a 1, B an odd number, C at most 5.', 'A (1 outcome), B (3), C (5)'),
+    ('L1', 'A die is rolled. Put these in order from least to most likely: A a 1, B an odd number, C a number less than 6.', 'A (1 outcome), B (3), C (5)'),
+    ('L1', 'A spinner has 10 equal sectors: 5 red, 3 blue and 2 green. Write the chance word for landing on red, and for landing on green.', 'Red: even chance (5 of 10). Green: unlikely (2 of 10).'),
     ('L2', 'An Esky has 6 lemonade and 4 lime cans. How many colas must be added so that P(cola) = ' + F(1, 3) + '?', '5 (5 of 15)'),
-    ('L2', 'One card is taken from a deck. Find the probability of a red card or a king (count each card once).', f'26 + 2 = 28: {show(28, 52)}'),
+    ('L2', 'One card is taken from a deck. Find the probability of a red number card (2 to 10).', f'9 hearts + 9 diamonds = 18: {show(18, 52)}'),
+    ('L2', 'A whole number from 1 to 60 is chosen at random. Find the probability of a multiple of 12, as a decimal correct to 2 decimal places.', f'{{12, 24, 36, 48, 60}}: {show(5, 60)} ≈ 0.08'),
     ('L2', 'A spinner has sector angles 120° red, 150° blue and 90° green. Find P(blue).', show(150, 360)),
     ('L3', 'The probability that E does not happen is 0.62. Find P(E).', '0.38'),
     ('L3', 'A spinner is red, green or blue. P(red) = 2 × P(green) and P(blue) = 0.4. Find P(green).', '0.2'),
+    ('L3', 'A bag has only red, blue and green marbles. P(red) = 0.35 and P(not blue) = 0.6. Find P(blue) and P(green).', 'P(blue) = 0.4; P(green) = 1 − 0.35 − 0.4 = 0.25'),
     ('L3', 'A 3-digit number (100 to 999) is chosen at random. Find P(not a multiple of 5).', f'{mult5_3dig} multiples of 5: {show(900 - mult5_3dig, 900)}'),
-    ('L4', 'A whole number from 1 to 30 is chosen at random. Find the probability of a multiple of 3 or 5.', f'{len(m35_30)} numbers: {show(len(m35_30), 30)}'),
+    ('L4', 'A whole number from 1 to 30 is chosen at random. Find the probability that it is not a multiple of 3.', f'10 multiples of 3: {show(20, 30)}'),
+    ('L4', 'One letter is picked at random from the 11 letters of MISSISSIPPI. Find P(an S) and P(not an I).', f'P(S) = {show(4, 11)}; P(not I) = {show(7, 11)}'),
     ('L4', 'A die is weighted so P(6) = 0.4 and the other numbers are equally likely. Find P(2).', '0.6 ÷ 5 = 0.12'),
     ('L5', 'After 40 games, the observed P(win) = 0.6. The team then loses 10 games in a row. Find the new observed P(win).', f'24 of 50: {show(24, 50, "dec")}'),
     ('L5', 'A die is rolled 120 times: 1 (18), 2 (22), 3 (20), 4 (19), 5 (21), 6 (x). Find x and the observed P(6).', f'x = 20; {show(20, 120)}'),
+    ('L5', 'A die is rolled 50 times and a 6 comes up 14 times. Find the observed probability of a 6, as a percentage. Is it close to the theoretical probability?', f'{show(14, 50, "pct")}; theoretical {fr(Fr(1, 6))} ≈ 16.7%, so it is not close (more rolls are needed, or the die may be biased).'),
     ('L6', 'The expected frequency of an event in 400 trials is 140. Find its probability.', show(140, 400)),
     ('L6', 'The observed probability that a car is white is 0.3. How many white cars would you expect among 450 cars?', '135'),
+    ('L6', 'A spinner is spun 300 times and lands on blue 75 times. Use the observed probability to predict the number of blues in 1000 spins.', f'{frs(75, 300)} = {fr(Fr(1, 4))}; {fr(Fr(1, 4))} × 1000 = 250'),
     ('L6', 'A 4-sector spinner (equal sectors) gave 160 reds in 400 spins. Is it fair? Use the expected frequency.', 'Expected 100 reds; 160 is far more, so it is probably biased.'),
-    ('E1', '60 students: 35 play sport, 28 play an instrument and 12 do both. How many do neither? Find P(exactly one).', f'neither 9; exactly one 23 + 16 = 39: {show(39, 60)}'),
-    ('E1', 'On a die, are ‘a prime number’ and ‘an even number’ mutually exclusive? Explain.', 'No: 2 is both prime and even.'),
-    ('E1', 'P(A) = 0.45, P(B) = 0.3 and P(A and B) = 0.1. Find P(neither).', '1 − 0.65 = 0.35'),
-    ('E2', 'A two-way table: Year 7 has 40 like and 70 in total; Year 8 has 25 dislike; the grand total is 130. Find P(Year 8 and likes).', f'Year 8 total 60, so likes 35: {show(35, 130)}'),
-    ('E2', 'A Venn diagram has A only 14, both 6, B only 10 and neither 20. Make a two-way table and find P(not A).', f'not A = 10 + 20 = 30: {show(30, 50)}'),
-    ('E2', 'Use the previous question. Find P(A or B, but not both).', show(24, 50)),
 ]
-assert mult5_3dig == 180 and len(m35_30) == 14
+assert mult5_3dig == 180 and len(m35_30) == 14 and len([x for x in range(1, 61) if x % 12 == 0]) == 5 and 'MISSISSIPPI'.count('S') == 4 and 'MISSISSIPPI'.count('I') == 4
 
 # ---------------------------------------------------------------- exit tickets: (easy, medium, hard) std ; (medium, hard, further) ext
 TICKETS = {
     'L1': dict(std=[('A spinner has 3 equal sectors: red, blue, red. List the sample space.', '{red, blue}'),
                     ('On that spinner, are red and blue equally likely? Explain.', 'No: red has 2 of the 3 sectors.'),
                     ('A die is rolled. Write the chance word for rolling a number less than 3.', 'Unlikely (2 of 6 outcomes).')],
-               ext=[('2 coins are tossed. List the possible numbers of heads (the sample space).', '{0, 1, 2}'),
-                    ('Are those numbers of heads equally likely? Explain.', 'No: 1 head can happen in 2 ways (HT or TH).'),
+               ext=[('One tile is picked from B, A, N, A, N, A. List the sample space.', '{B, A, N}'),
+                    ('Are those letters equally likely? Explain.', 'No: A is on 3 tiles, N on 2 and B on 1.'),
                     ('Design a spinner with 6 equal sectors where red is likely and blue is unlikely but possible.', 'e.g. 4 red, 1 blue, 1 yellow')]),
     'L2': dict(std=[('A die is rolled. Find the probability of a 4.', fr(Fr(1, 6))),
                     ('A bag has 3 red and 5 blue counters. Find the probability of blue, as a percentage.', show(5, 8, 'pct')),
@@ -133,14 +134,14 @@ TICKETS = {
     'L3': dict(std=[('Write the complement of ‘rolling an even number’.', 'rolling an odd number'),
                     ('The probability of winning is 0.35. Find the probability of not winning.', '0.65'),
                     ('A jar has 7 red, 5 green and 8 yellow lollies. One is taken. Find the probability it is not yellow.', show(12, 20))],
-               ext=[('A die is rolled. Write the complement of ‘at least 3’, then find its probability.', f'at most 2 (1 or 2): {fr(Fr(1, 3))}'),
+               ext=[('A die is rolled. Write the complement of ‘a number greater than 2’, then find its probability.', f'rolling a 1 or 2: {fr(Fr(1, 3))}'),
                     ('A spinner is red, blue or green. P(red) = 0.3 and P(blue) = 0.45. Find P(not green).', '0.75'),
                     ('The probability that E does not happen is four times P(E). Find P(E).', '0.2')]),
     'L4': dict(std=[('A spinner has 5 equal sectors numbered 1 to 5. Find the probability of an odd number, as a percentage.', '60%'),
                     ('Of 30 students, 12 catch the bus, 10 walk and the rest are driven. Find P(driven).', show(8, 30)),
                     ('A coin lands heads 5 times in a row. Find the probability of heads on the next toss. Explain.', f'{fr(Fr(1, 2))}: the coin has no memory.')],
                ext=[('A whole number from 1 to 100 is chosen at random. Find the probability of a square number.', show(10, 100)),
-                    ('A whole number from 1 to 20 is chosen at random. Find the probability of a multiple of 2 or 5.', show(12, 20)),
+                    ('A whole number from 1 to 20 is chosen at random. Find the probability of a number less than 5 or greater than 16.', f'{{1, 2, 3, 4, 17, 18, 19, 20}}: {show(8, 20)}'),
                     ('A die is rolled: Amy wins on 1 or 2, Bo wins on 3 to 6. Is the game fair? Explain.', 'No: A has 2 outcomes, B has 4.')]),
     'L5': dict(std=[('A coin is tossed 40 times and lands heads 18 times. Find the observed probability of heads.', show(18, 40)),
                     ('Is ‘P(rolling a 6) = ⅙’ a theoretical or an observed probability?', 'Theoretical'),
@@ -195,8 +196,8 @@ HW_STD = [
 m7_50 = sum(1 for x in range(1, 51) if x % 7 == 0)
 m46_30 = [x for x in range(1, 31) if x % 4 == 0 or x % 6 == 0]
 HW_EXT = [
-    ('HW 1', 'L1 Chance', [('3 coins are tossed. List the possible numbers of heads.', '{0, 1, 2, 3}'),
-                           ('Are those numbers of heads equally likely? Explain.', 'No'),
+    ('HW 1', 'L1 Chance', [('A spinner has 8 equal sectors: 3 red, 3 blue and 2 green. List the sample space.', '{red, blue, green}'),
+                           ('Are those colours equally likely? Explain.', 'No: green has only 2 sectors.'),
                            (f'Put these probabilities in order from least to most likely: 0.3, {F(2, 5)}, 35%.', f'0.3, 35%, {fr(Fr(2, 5))}')]),
     ('HW 2', 'L2 P(E)', [('One card is taken from a deck. Find the probability of a red picture card.', show(6, 52)),
                          (f'An Esky has 6 lemonade and 4 lime cans. How many cola cans must be added so that P(lemonade) = {F(1, 2)}?', '2'),
@@ -204,7 +205,7 @@ HW_EXT = [
     ('HW 3', 'L3 Complements', [('The probability that E does not happen is 0.35. Find P(E).', '0.65'),
                                 ('A spinner is red, blue or green. P(red) = 0.25 and P(blue) = 0.4. Find P(green).', '0.35'),
                                 ('A whole number from 1 to 50 is chosen at random. Find the probability that it is not a multiple of 7.', show(50 - m7_50, 50))]),
-    ('HW 4', 'L4 Problems', [('A whole number from 1 to 30 is chosen at random. Find the probability of a multiple of 4 or 6.', show(len(m46_30), 30)),
+    ('HW 4', 'L4 Problems', [('A whole number from 1 to 30 is chosen at random. Find the probability of a multiple of 4.', f'{{4, 8, …, 28}}: {show(7, 30)}'),
                              ('In a group, P(left-handed) = 0.12 and 6 students are left-handed. How many students are in the group?', '50'),
                              ('A die is rolled: Ann wins on a prime number, Bo on any other number. Is the game fair? Explain.', 'Yes: 3 outcomes each')]),
     ('HW 5', 'L5 Observed', [('A coin is tossed 250 times and lands heads 140 times. Find the observed probability of heads.', show(140, 250, 'dec')),
@@ -213,14 +214,14 @@ HW_EXT = [
     ('HW 6', 'L6 Expected', [('An event E is expected 90 times in 360 trials. Find P(E).', show(90, 360)),
                              ('A die is rolled n times. The expected number of 6s is 42. Find n.', '252'),
                              ('An event has an observed probability of 0.15. How many times would you expect it in 2000 trials?', '300')]),
-    ('HW 7', 'E1 Venn', [('A Venn diagram has A only 9, both 4, B only 7 and neither 5. Find P(A).', show(13, 25)),
-                         ('Use the same Venn diagram. Find P(A or B).', show(20, 25)),
-                         ('Use the same Venn diagram. Find P(exactly one of A and B).', show(16, 25))]),
-    ('HW 8', 'E2 Tables', [('A two-way table has: A and B 6, A not B 9, B not A 5, neither 10. Find P(B).', show(11, 30)),
-                           ('Use the same table. Find P(A or B).', show(20, 30)),
-                           ('Use the same table. Find P(not A and not B).', show(10, 30))]),
-    ('HW 9', 'Before the test', [('<b>L3</b> One tile is picked from KINGSCLIFF. Find the probability that it is not a vowel.', show(8, 10)),
-                                 ('<b>L6</b> A die is rolled 150 times. How many 4s would you expect?', '25'),
-                                 ('<b>E1</b> On a die, are ‘a multiple of 3’ and ‘a 5’ mutually exclusive?', 'Yes')]),
+    ('HW 7', 'Before the test 1', [('<b>L1</b> A bag has 4 red, 4 blue and 2 green counters. Are the three colours equally likely? Explain.', 'No: green has only 2 counters.'),
+                                   ('<b>L2</b> A spinner has sector angles 180° red, 120° blue and 60° green. Find P(green).', show(60, 360)),
+                                   ('<b>L3</b> The probability of rain is 0.27. Find the probability of no rain, as a percentage.', '73%')]),
+    ('HW 8', 'Before the test 2', [('<b>L4</b> A whole number from 1 to 40 is chosen at random. Find the probability of a square number.', f'{{1, 4, 9, 16, 25, 36}}: {show(6, 40)}'),
+                                   ('<b>L5</b> A spinner landed on red 27 times in 60 spins. Find the observed probability of red, as a decimal.', show(27, 60, 'dec')),
+                                   ('<b>L6</b> A die is rolled 240 times. How many numbers greater than 4 would you expect?', f'{fr(Fr(1, 3))} × 240 = 80')]),
+    ('HW 9', 'Before the test 3', [('<b>L3</b> One tile is picked from KINGSCLIFF. Find the probability that it is not a vowel.', show(8, 10)),
+                                   ('<b>L5</b> A coin lands heads 33 times in 60 tosses. Find the observed probability of heads, as a decimal.', show(33, 60, 'dec')),
+                                   ('<b>L6</b> A die is rolled 150 times. How many 4s would you expect?', '25')]),
 ]
 assert len(m46_30) == 10 and m7_50 == 7

@@ -138,8 +138,8 @@ STD = dict(
           'Observed P(2) = ¼, but a fair die gives about 10 twos in 60 rolls. 15 is suspicious but 60 rolls is not many: roll it hundreds more times.'),
         Q('The canteen’s last 200 lunch orders were 70 wraps, 50 sushi and 80 burgers. Find the observed probability that the next order is a wrap. Why is this only an estimate?', '',
           f'{show(70, 200, "dec")}. It is based on past orders; tomorrow’s orders may be different.'),
-        Q('To estimate the chance that a family of 4 children are all girls, Jo tosses 4 coins together (heads = girl), 50 times. All 4 coins showed heads 4 times. Find the observed probability. How could Jo improve the estimate?', coin('H', 6) + coin('H', 6) + coin('H', 6) + coin('H', 6),
-          f'{show(4, 50, "dec")}. Run many more trials.'),
+        Q('Mia uses RanInt#(1,6) on a calculator to roll a die 50 times. She gets a 6 eleven times. Find the observed probability of a 6, as a decimal. How could Mia improve the estimate?', calculator('RanInt#(1,6)', '6', 18),
+          f'{show(11, 50, "dec")}. Run many more trials.'),
     ],
 )
 assert odd_sums == 22
@@ -166,7 +166,7 @@ ext_p1 = [
 ]
 ext_p2 = [
     R('the matches in each of 50 matchboxes were counted. Use the table.', 3, [
-        Q('Find the observed probability that a box has at least 50 matches (50 or more), as a decimal.', '', show(50 - 9, NM, 'dec')),
+        Q('Find the observed probability that a box has more than 50 matches, as a decimal.', '', show(MATCH[51] + MATCH[52] + MATCH[53], NM, 'dec')),
         Q('Find the observed probability that a box does not have exactly 50 matches, as a decimal.', '', show(NM - MATCH[50], NM, 'dec')),
         Q('The label says ‘average contents 50’. Find the mean number of matches per box. Is the label fair?', '', f'mean = {frs(2515, 50)} = {dec(mean_m)}: yes, fair', tag='Ch 7'),
     ], h=24, ln=[('Working', ''), ('Answer', '')], info=MATCH_TAB),
@@ -176,7 +176,7 @@ ext_p2 = [
         Q('Do you think this die is biased? Explain using the numbers.', '', '6 came up 22 times; a fair die gives about 13 of each in 80 rolls. It looks biased towards 6, but more rolls would make us surer.'),
     ], h=24, ln=[('Working', ''), ('Answer', '')], info=DIE80_TAB),
     R('two dice were rolled 50 times and the sum was recorded each time. Use the table.', 3, [
-        Q('Find the observed probability of a composite sum (a sum with more than two factors), as a decimal.', '', f'sums 4, 6, 8, 9, 10, 12: {show(comp_sums, NS, "dec")}'),
+        Q('Find the observed probability of a sum of 7, as a decimal.', '', show(SUMS[7], NS, 'dec')),
         Q(f'Which sum or sums had an observed probability of {F(3, 25)}?', '', ' and '.join(map(str, sums_3_25)) + f' ({frs(6, 50)} each)'),
         Q('Which sum had an observed probability of 16%?', '', f'{sums_16[0]} ({frs(8, 50)})'),
     ], h=24, ln=[('Working', ''), ('Answer', '')], info=SUMS_TAB),
@@ -192,12 +192,12 @@ assert sums_3_25 == [5, 9] and sums_16 == [10] and comp_sums == 34 and mean_m ==
 EXT = dict(
     rem1=STD['rem1'],
     p1=ext_p1,
-    rem2='Observed probability = frequency ÷ total trials. ‘At least 50’ means 50 or more. A biased die has outcomes that are not equally likely.',
+    rem2='Observed probability = frequency ÷ total trials. ‘More than 50’ means 51, 52 or 53 here. A biased die has outcomes that are not equally likely.',
     p2=ext_p2,
     rem3='Frequency = observed probability × number of trials. Use this to work backwards from a probability to a count.',
     p3=[
-        Q('After 50 tosses, the observed probability of heads is 0.58. After 30 more tosses, the observed probability for all 80 tosses is 0.55. How many heads were in the last 30 tosses?', '',
-          f'{Fr(58, 100) * 50} heads, then {Fr(55, 100) * 80} heads: {Fr(55, 100) * 80 - Fr(58, 100) * 50} in the last 30'),
+        Q('After 50 tosses, the observed probability of heads is 0.58. How many heads have there been? How many tails?', '',
+          f'0.58 × 50 = {Fr(58, 100) * 50} heads; {50 - Fr(58, 100) * 50} tails'),
         Q('A spinner is spun 120 times. The observed probability of red is 0.35. How many times did it land on red?', '', f'0.35 × 120 = {Fr(35, 100) * 120}'),
         Q('A die is rolled 40 times: 1 five times, 2 eight times, 3 x times, 4 six times, 5 seven times and 6 nine times. Find x and the observed P(3).', '',
           f'x = 40 − 35 = 5; {show(5, 40, "dec")}'),
@@ -207,8 +207,8 @@ EXT = dict(
         Q('A biased coin lands tails 248 times in 400 tosses. Find the observed probability of heads.', '', show(152, 400, 'dec')),
     ],
     word=[
-        Q(f'Jo’s family simulation gave 4 girls 4 times in 50 trials. The theoretical P(4 girls) = {F(1, 16)} (you will see why in Stage 5). Jo runs 50 more trials and gets 4 girls twice. Find the observed probability for all 100 trials. Is it closer to {F(1, 16)}?', '',
-          f'50 trials: 0.08. 100 trials: {show(6, 100, "dec")}. {F(1, 16)} = 0.0625, so yes, 0.06 is closer.'),
+        Q(f'Jo uses RanInt#(1,4) to model a spinner with 4 equal sectors (1 = red). In 50 trials Jo gets red 9 times. In 50 more trials Jo gets red 14 times. Find the observed probability of red after 50 trials and after all 100 trials. Which is closer to the theoretical {F(1, 4)}?', '',
+          f'50 trials: {show(9, 50, "dec")}. 100 trials: {show(23, 100, "dec")}. {F(1, 4)} = 0.25, so 0.23 (100 trials) is closer.'),
         Q('A spinner has 3 colours. In 200 spins: red 98, blue 52, green 50. Sketch what the spinner probably looks like, and explain.', '',
           'Red about half (98 ÷ 200 ≈ 0.5), blue and green about a quarter each.'),
         Q('Two classes test a coin. 8K gets 23 heads in 40 tosses; 8R gets 112 heads in 200 tosses. Find each class’s observed probability of heads. Which is the better estimate, and why?', '',

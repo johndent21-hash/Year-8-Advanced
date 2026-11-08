@@ -114,7 +114,7 @@ STD = dict(
         Q('Use Question 1. Do you think the die is biased? Explain.', '', 'Probably: 6 came up far more often than expected (22 compared with 13.3).'),
         Q('A fair die is rolled 100 times. Find the expected number of 3s, to 1 decimal place.', '', f'{fr(Fr(1, 6))} × 100 ≈ {dec(Fr(100, 6), 1)}'),
         Q('Find 35% of 240.', '', f'{Fr(35, 100) * 240}', tag='Year 7'),
-        Q('In a sample, 41 of 50 matchboxes held at least 50 matches. How many of 1000 boxes would you expect to hold at least 50?', '', E(Fr(41, 50), 1000)),
+        Q('In a sample, 21 of 50 matchboxes held more than 50 matches. How many of 1000 boxes would you expect to hold more than 50?', '', E(Fr(21, 50), 1000)),
     ],
     word=[
         Q('Declan rolled a die 60 times: 1 (10), 2 (11), 3 (13), 4 (7), 5 (8), 6 (11). Find the expected number of 5s or 6s and the observed number of 5s or 6s. Is the die fair? Explain.', '',
@@ -149,7 +149,7 @@ ext_p2 = [
     ], h=20, ln=[('Working', ''), ('Answer', '')]),
     R('use the matchbox sample of 50 boxes (table) to predict how many of 1000 boxes would hold each number of matches.', 3, [
         Q('How many of 1000 boxes would hold exactly 50 matches?', '', E(Fr(MATCH[50], 50), 1000)),
-        Q('How many would hold at least 50 matches (50 or more)?', '', E(Fr(41, 50), 1000)),
+        Q('How many would hold more than 50 matches?', '', E(Fr(MATCH[51] + MATCH[52] + MATCH[53], 50), 1000)),
         Q('How many would hold fewer than 49 matches?', '', E(Fr(MATCH[48], 50), 1000)),
     ], h=20, ln=[('Working', ''), ('Answer', '')], info=MATCH_TAB),
     R('in 72 rolls of a die, a 4 came up 9 times. Predict the number of 4s in 1000 rolls.', 3, [
@@ -160,8 +160,7 @@ ext_p2 = [
     R('two dice were rolled 50 times and the sum was recorded each time. Use the table.', 3, [
         Q('Using the observed probability, how many sums of 8 would you expect in 300 rolls?', '', E(Fr(SUMS[8], NS), 300)),
         Q('Using the observed probability, how many sums of 2 would you expect in 300 rolls? Why is this prediction unreliable?', '', '0; but a sum of 2 (1 + 1) is possible. 50 rolls is too few.'),
-        Q(f'The theoretical probability of a sum of 7 is {F(1, 6)} (Stage 5 shows why). How many 7s would you expect in 50 rolls? Compare with the table.', '',
-          f'{fr(Fr(1, 6))} × 50 ≈ {dec(Fr(50, 6), 1)}; observed {SUMS[7]}: fewer'),
+        Q('Using the observed probability, how many sums of 7 would you expect in 300 rolls?', '', E(Fr(SUMS[7], NS), 300)),
     ], h=28, ln=[('Working', ''), ('Answer', '')], info=SUMS_TAB),
 ]
 

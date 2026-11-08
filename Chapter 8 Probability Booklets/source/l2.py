@@ -53,8 +53,8 @@ NOTES = f'''<div class="tnotes">
 <p><span class="step">1</span>list the outcomes <span class="step">2</span>circle the favourable ones</p>
 <p><span class="step">3</span>fraction, simplify <span class="step">4</span>convert if asked</p>
 <div style="display:flex;gap:1mm;margin:.8mm 0 .6mm">{DIE_ROW}</div>
-<p><b>at least 4</b> = 4 or more; <b>at most 4</b> = 4 or less <span class="maroon" style="font-size:7pt">(ext.)</span></p>
-<p>P(at least 4) = {frs(3, 6)} = {fr(Fr(1, 2))} = 0.5 = 50%</p></div>
+<p><b>greater than 3</b> means 4, 5 or 6 (3 is not included)</p>
+<p>P(greater than 3) = {frs(3, 6)} = {fr(Fr(1, 2))} = 0.5 = 50%</p></div>
 </div>'''
 
 MONEY = [('$2', 4), ('$1', 3), ('50c', 2), ('20c', 6), ('10c', 5)]
@@ -143,7 +143,7 @@ STD = dict(
         Q('A whole number from 1 to 15 is chosen at random. List the prime numbers, then find the probability of a prime number.', number_cards(range(1, 9), 3.7) + number_cards(range(9, 16), 3.7),
           f'{setstr(primes15)}: {show(len(primes15), 15)}'),
         Q('One tile is picked without looking. Find the probability of an S.', tiles('SUCCESS', 5), show('SUCCESS'.count('S'), 7)),
-        Q('A die is rolled. Find the probability of rolling at least 3 (that is, 3 or more).', die3d(10, 3, 4, 2), f'{{3, 4, 5, 6}}: {show(4, 6)}', tag='Extension'),
+        Q('A die is rolled. Find the probability of rolling a number greater than 2.', die3d(10, 3, 4, 2), f'{{3, 4, 5, 6}}: {show(4, 6)}'),
         Q('500 raffle tickets are sold at the school fete. Mia buys 8. Find the probability that Mia wins first prize. Write it as a percentage.', raffle('0427', 18), show(8, 500, 'pct')),
     ],
     word=[
@@ -177,7 +177,7 @@ ext_p1 = [
         d10_q('a prime number', lambda x: x in PRIMES, 7),
         d10_q('a multiple of 3', lambda x: x % 3 == 0, 3),
         d10_q('a factor of 10', lambda x: 10 % x == 0, 5),
-        d10_q('at least 8 (8 or more)', lambda x: x >= 8, 9),
+        d10_q('a number greater than 7', lambda x: x > 7, 9),
     ], h=29, ln=[('Favourable outcomes', BR), ('Probability', '')]),
 ]
 nb_pic = len(card_p(lambda c: c[1] not in RED and c[0] in PICTURE)[0])
@@ -194,7 +194,7 @@ ext_p2 = [
     R('one coin falls out of the money box from Example 2. Write each answer in the form asked.', 3, [
         Q('Find the probability of a 10c or 20c coin. Write it as a percentage.', '', show(mb['10c'] + mb['20c'], NCOINS, 'pct')),
         Q('Find the probability of a coin worth less than $1. Write it as a percentage.', '', show(mb['50c'] + mb['20c'] + mb['10c'], NCOINS, 'pct')),
-        Q('Find the probability of a coin worth at least 50c (50c or more). Write it as a decimal.', '', show(mb['$2'] + mb['$1'] + mb['50c'], NCOINS, 'dec')),
+        Q('Find the probability of a gold coin ($1 or $2). Write it as a decimal.', '', show(mb['$2'] + mb['$1'], NCOINS, 'dec')),
     ], h=24, ln=[('Working', ''), ('Answer', '')], info=money_box(MONEY, 52) + '<span class="cap">20 coins in the money box.</span>'),
     R('work backwards from the probability to find the missing number. Show your working.', 3, [
         Q(f'A bag has 6 red counters and some blue counters. P(red) = {F(1, 3)}. How many blue counters are in the bag?', '', f'total = 6 ÷ {fr(Fr(1, 3))} = 18, so {18 - 6} blue'),
@@ -220,7 +220,7 @@ nums = [int(''.join(map(str, p))) for p in itertools.permutations(digits)]
 P_odd = Fr(sum(1 for n in nums if n % 2), len(nums))
 P_gt = Fr(sum(1 for n in nums if n > 5000), len(nums))
 P_5 = Fr(sum(1 for n in nums if str(n)[0] == '5'), len(nums))
-kai = [x for x in range(1, 21) if x % 3 == 0 or x % 4 == 0]
+kai = [x for x in range(1, 21) if x % 3 == 0]
 
 
 def add_for(target, have, others):
@@ -246,14 +246,14 @@ EXT = dict(
     p1=ext_p1,
     rem2='‘Or’ with no overlap: add the counts. Decimal: top ÷ bottom. Percentage: × 100%. Missing total = count ÷ probability.',
     p2=ext_p2,
-    rem3='Probability = favourable ÷ total. If the total changes, the probability changes. Never count an outcome twice.',
+    rem3='Probability = favourable ÷ total. If the total changes, the probability changes. List the outcomes before you count.',
     p3=[
         Q('An Esky has 8 lemonade, 5 orange and 2 lime cans. How many cola cans must be added so that P(cola) = ' + F(2, 5) + '?', esky([('yellow', 'lemon', 8), ('orange', 'orange', 5), ('green', 'lime', 2)], 26),
           f'Add {x_cola} colas: {frs(x_cola, 15 + x_cola)} = {fr(Fr(2, 5))}'),
         Q('Start again with the Esky from Question 1 (no colas). How many cola cans must be added so that P(orange) = 0.25?', '',
           f'Add {x_orange}: {frs(5, 15 + x_orange)} = 0.25'),
-        Q('One card is taken from a standard deck. Find the probability that it is a heart or a picture card. Careful: do not count any card twice.', cards(['KH', '7H', 'QS'], 13),
-          f'13 hearts + 9 other picture cards = {heart_or_pic}: {show(heart_or_pic, 52)}'),
+        Q('One card is taken from a standard deck. Find the probability that it is not a picture card (not a J, Q or K).', cards(['KH', '7H', 'QS'], 13),
+          f'52 − 12 = 40: {show(40, 52)}'),
         Q('One tile is picked without looking. Find the probability that it is an L or an M.', tiles(murw, 3.4), show(n_LM, len(murw))),
         Q('The spinner’s sector angles are 180° red, 90° blue, 60° green and 30° yellow. Find P(green) and P(yellow). (A full turn is 360°.)', spinner(ANG, 14),
           f'P(green) = {frs(60, 360)} = {fr(spin_p(ANG, "green"))}; P(yellow) = {frs(30, 360)} = {fr(spin_p(ANG, "yellow"))}'),
@@ -265,8 +265,8 @@ EXT = dict(
           f'{fr(P_5)}, {fr(P_odd)}, {fr(P_gt)} (the first digit is 5 or 8; the last digit is 1, 3 or 5)'),
         Q(f'A jar holds 60 lollies. P(red) = {F(1, 4)} and P(green) = {F(1, 3)}. The rest are yellow. How many yellow lollies are there? Then find P(yellow).', '',
           f'red 15, green 20, so yellow {60 - 15 - 20}: P(yellow) = {show(25, 60)}'),
-        Q('Kai picks a whole number from 1 to 20 at random. Kai wins if it is a multiple of 3 or a multiple of 4. Find the probability that Kai wins.', '',
-          f'{setstr(kai)}: {show(len(kai), 20)} (12 is counted once)'),
+        Q('A whole number from 1 to 20 is picked at random. Kai wins if it is a multiple of 3; otherwise Lee wins. Find the probability that each player wins. Is the game fair?', '',
+          f'Kai {setstr(kai)}: {show(len(kai), 20)}; Lee {show(20 - len(kai), 20)}. Not fair: Lee is more likely to win.'),
     ],
 )
 assert (P_5, P_odd, P_gt) == (Fr(1, 4), Fr(3, 4), Fr(1, 2))

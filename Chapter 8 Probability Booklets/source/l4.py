@@ -49,7 +49,7 @@ NOTES = f'''<div class="tnotes" style="grid-template-columns:1.05fr 1.05fr 1fr">
 
 LOL = [('red', Fr(1, 2)), ('green', Fr(1, 5))]
 p_purple = 1 - sum(p for _, p in LOL)
-m15 = [x for x in range(1, 16) if x % 3 == 0 or x % 5 == 0]
+m15 = [x for x in range(1, 16) if x < 4 or x > 12]
 EX1 = dict(
     instr='Use the checklist in your notes. Write each probability as a fraction in simplest form, unless the question asks for a percentage.',
     parts=[
@@ -67,15 +67,15 @@ EX2 = dict(
     instr='Harder problems: read each one twice, decide what you need to find, then solve.',
     parts=[
         ('Small chances', raffle('0042', 18), 'A charity raffle sells 100 000 tickets and Sophia buys 4. Find the probability that Sophia wins. Write it as a decimal.'),
-        ('Or', number_cards(range(1, 9), 3.2) + number_cards(range(9, 16), 3.2), 'A whole number from 1 to 15 is chosen at random. Find the probability of a multiple of 3 or a multiple of 5.'),
+        ('Or', number_cards(range(1, 9), 3.2) + number_cards(range(9, 16), 3.2), 'A whole number from 1 to 15 is chosen at random. Find the probability of a number less than 4 or greater than 12.'),
         ('How many?', '', 'A bag of lollies has P(red) = 0.5 and P(green) = 0.2. The rest are purple. Find P(purple). Then find how many of each colour are in a bag of 10 lollies.'),
         ('No memory', coin('T', 9, 'silver'), 'A coin lands tails 7 times in a row. Find the probability of tails on the next toss.'),
     ], box=17,
     ans=[f'{frs(4, "100 000")} = {dec(Fr(4, 100000))}',
-         f'{setstr(m15)}: {show(len(m15), 15)} (15 is counted once)',
+         f'{setstr(m15)}: {show(len(m15), 15)}',
          f'P(purple) = 1 − 0.5 − 0.2 = {dec(p_purple)}; red 5, green 2, purple 3',
          f'{fr(Fr(1, 2))}: each toss is a fresh start.'])
-assert len(m15) == 7
+assert len(m15) == 6
 
 # ---------------------------------------------------------------- standard
 SPIN5 = [('white', 1, str(k)) if k % 2 else ('yellow', 1, str(k)) for k in range(1, 6)]
@@ -151,7 +151,7 @@ FACES = [('red', 2), ('white', 3), ('blue', 1), ('yellow', 2)]
 fc = dict(FACES)
 ext_p1 = [
     R('one ball is picked at random from a barrel of 100 balls numbered 1 to 100. Find each probability as a fraction in simplest form.', 4, [
-        Q('Find the probability of a number that is at most 85 (85 or less).', '', show(85, 100)),
+        Q('Find the probability of a number from 1 to 85.', '', show(85, 100)),
         Q('Find the probability of a multiple of 7.', '', show(len([x for x in range(1, 101) if x % 7 == 0]), 100)),
         Q('Find the probability of a two-digit number.', '', show(90, 100)),
         Q('Find the probability that the number has a 5 as one of its digits.', '', show(len(digit5), 100)),
@@ -164,9 +164,9 @@ ext_p1 = [
     ], h=28, ln=[('Working', ''), ('Probability', '')]),
 ]
 assert len(digit5) == 19
-e5 = [x for x in range(1, 16) if x % 2 == 0 or x % 5 == 0]
+e5 = [x for x in range(1, 16) if x % 4 == 0]
 nf12 = [x for x in range(1, 16) if 12 % x]
-po = [x for x in range(1, 16) if x in PRIMES and x % 2]
+po = [x for x in range(1, 16) if x in PRIMES]
 KC = 'KINGSCLIFF'
 TRUCK = [('hand sanitiser', 240), ('soap', 305), ('paper', 335), ('pens', 120)]
 trk = dict(TRUCK)
@@ -179,9 +179,9 @@ ext_p2 = [
         Q('Find the probability that the player is from Queensland or Victoria.', '', show(26, 60)),
     ], h=22, ln=[('Working', ''), ('Answer', '')]),
     R('a whole number from 1 to 15 is chosen at random. List the favourable outcomes, then find the probability.', 3, [
-        Q('Find the probability of a number that is even or a multiple of 5 (count each number once).', '', f'{setstr(e5)}: {show(len(e5), 15)}'),
+        Q('Find the probability of a multiple of 4.', '', f'{setstr(e5)}: {show(len(e5), 15)}'),
         Q('Find the probability of a number that is not a factor of 12.', '', f'{setstr(nf12)}: {show(len(nf12), 15)}'),
-        Q('Find the probability of a number that is both prime and odd.', '', f'{setstr(po)}: {show(len(po), 15)}'),
+        Q('Find the probability of a prime number.', '', f'{setstr(po)}: {show(len(po), 15)}'),
     ], h=26, ln=[('Favourable outcomes', '{ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }'), ('Probability', '')]),
     R('the 10 letters of KINGSCLIFF are written on 10 cards. One card is picked without looking.', 3, [
         Q('Is each different letter equally likely to be picked? Explain.', '', 'No: I and F are on 2 cards each; every other letter is on 1 card.'),
@@ -194,19 +194,19 @@ ext_p2 = [
         Q('Find the probability that it is not a box of paper.', '', show(NTR - trk['paper'], NTR)),
     ], h=22, ln=[('Working', ''), ('Answer', '')]),
 ]
-m46 = [x for x in range(1, 51) if x % 4 == 0 or x % 6 == 0]
+m46 = [x for x in range(1, 51) if x % 6 == 0]
 same3 = [x for x in range(100, 1000) if len(set(str(x))) == 1]
 EXT = dict(
     rem1='Probability = favourable outcomes ÷ total outcomes. Write fractions in simplest form. For a decimal, divide the top by the bottom.',
     p1=ext_p1,
-    rem2='List the outcomes carefully. Count each object, not each name. With ‘or’, never count an outcome twice.',
+    rem2='List the outcomes carefully. Count each object, not each name. ‘Or’ for different groups: add the counts.',
     p2=ext_p2,
     rem3='Plan before you calculate. A game is fair when every player has the same probability of winning.',
     p3=[
         Q('Bag A has 10 lollies and bag B has 100 lollies. In both bags, P(red) = 0.5. Which bag gives the better chance of taking a red lolly? Explain.', '',
           'Neither: P(red) = 0.5 in both bags. Bag B just has more lollies.'),
-        Q('A whole number from 1 to 50 is chosen at random. Find the probability of a multiple of 4 or a multiple of 6 (count each number once).', '',
-          f'12 + 8 − 4 (both: 12, 24, 36, 48) = {len(m46)}: {show(len(m46), 50)}'),
+        Q('A whole number from 1 to 50 is chosen at random. List the multiples of 6, then find the probability of a multiple of 6.', '',
+          f'{setstr(m46)}: {show(len(m46), 50)}'),
         Q('A 3-digit number from 100 to 999 is chosen at random. Find the probability that all three digits are the same.', '',
           f'{len(same3)} numbers (111, …, 999): {show(len(same3), 900)}'),
         Q('A die is weighted so that P(6) = 0.25. The other five numbers are equally likely. Find P(1).', '',
@@ -225,7 +225,7 @@ EXT = dict(
           'Red = 7. Need 7 ÷ 0.25 = 28 marbles, so add 8 blue.'),
     ],
 )
-assert len(m46) == 16 and len([x for x in range(1, 21) if x % 4 == 0]) == 5 and len([x for x in range(1, 21) if x in PRIMES]) == 8
+assert len(m46) == 8 and len([x for x in range(1, 21) if x % 4 == 0]) == 5 and len([x for x in range(1, 21) if x in PRIMES]) == 8
 assert Fr(7, 28) == Fr(1, 4)
 
 LESSON = dict(key='L4', num='4', title='Probability problems', sub=SUB, alt=True,

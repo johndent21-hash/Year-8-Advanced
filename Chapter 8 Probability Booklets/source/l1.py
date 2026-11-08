@@ -164,7 +164,7 @@ ext_r2 = R('list the sample space inside braces { } and count the outcomes. Writ
     Q('This spinner is spun once. List the sample space.', spinner([('white', 1, '1'), ('yellow', 1, '2'), ('yellow', 1, '2'), ('green', 1, '3'), ('green', 1, '3'), ('green', 1, '3')], 12, letters=False), '{1, 2, 3}: 3 outcomes'),
     Q('One tile is picked. List the sample space.', tiles('TWEEDHEADS', 3.4), f'{setstr(uniq("TWEEDHEADS"))}: {len(uniq("TWEEDHEADS"))} outcomes'),
     Q('List the possible last digits of a car number plate.', '', '{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}: 10 outcomes'),
-    Q('3 coins are tossed together. List the possible numbers of heads.', coins3, '{0, 1, 2, 3}: 4 outcomes'),
+    Q('One card is taken from a standard deck. List the possible suits.', cards(['KH', '7D', '3C', 'QS'], 12), '{hearts, diamonds, clubs, spades}: 4 outcomes'),
 ], h=29, ln=SS_LN)
 
 ext_r3 = R('list the outcomes in each event, inside braces { }.', 3, [
@@ -174,7 +174,7 @@ ext_r3 = R('list the outcomes in each event, inside braces { }.', 3, [
 ], h=36, ln=[('Outcomes', BR), ('', '')])
 
 ext_r4 = R('decide if the outcomes are equally likely. Write <i>yes</i> or <i>no</i>, then give a reason.', 3, [
-    Q('3 coins are tossed. Are 0, 1, 2 and 3 heads equally likely?', coins3, 'No. 1 head or 2 heads can happen in more ways than 0 or 3 heads.'),
+    Q('A bag has 5 red and 5 blue counters. One is taken without looking. Are red and blue equally likely?', bag([('red', 5), ('blue', 5)], 13), 'Yes. There are 5 counters of each colour.'),
     Q('A person is picked. Is every letter equally likely to be the first letter of their first name?', '', 'No. Some letters (like J or S) start far more names than others (like Q or X).'),
     Q('A random number generator makes a whole number from 1 to 20. Is each number equally likely?', calculator('RanInt#(1,20)', '13', 8), 'Yes. A random number generator makes each number equally likely.'),
 ], h=42, ln=[('Yes or no', ''), ('Reason', ''), ('', '')])
@@ -232,8 +232,8 @@ EXT = dict(
     word=[
         Q('The surf club picks 1 of its 12 members at random: 5 are in Year 8, 4 in Year 9 and 3 in Year 10. Write the chance word for ‘the person is in Year 8’ and for ‘the person is in Year 11’. Give reasons.', '',
           'Year 8: unlikely, because 5 of 12 is less than half. Year 11: impossible, because no members are in Year 11.'),
-        Q('A spinner has 8 equal sectors coloured red, blue and yellow. Red is likely. Blue and yellow are equally likely, and yellow is possible. Find every possible design (how many sectors of each colour).', '',
-          'Only one: 6 red, 1 blue, 1 yellow. (4 red, 2 blue, 2 yellow gives red an even chance, not likely.)'),
+        Q('A spinner has 8 equal sectors coloured red, blue and yellow. Red must be likely, and blue and yellow must be equally likely. Kim colours 4 red, 2 blue and 2 yellow. Explain why this does not work, then give a design that does.', '',
+          'Red is 4 of 8, an even chance, not likely. A design that works: 6 red, 1 blue, 1 yellow.'),
         Q('In a game a die is rolled: Ava wins on 1 or 2, Ben on 3, 4 or 5, and Cal on 6. Is the game fair? Explain, then change the rules to make it fair.', '',
           'Not fair: Ava has 2 outcomes, Ben 3 and Cal 1. Fair: give each player 2 numbers, e.g. Ava 1–2, Ben 3–4, Cal 5–6.'),
     ],
