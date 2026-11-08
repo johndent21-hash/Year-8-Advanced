@@ -78,9 +78,9 @@ b,strong{font-weight:700}
 .part .lab{display:flex;align-items:center;gap:1.6mm;font-family:Poppins;font-size:8.5pt;font-weight:500;min-height:5mm}
 .letter{display:inline-flex;width:4.6mm;height:4.6mm;border-radius:50%;background:#3d3d3d;color:#fff;font-family:Poppins;font-weight:600;font-size:7.4pt;align-items:center;justify-content:center;flex:none}
 .part .fig{display:flex;align-items:center;justify-content:center;gap:1.5mm;margin-top:.8mm}
-.part .txt{font-size:8.9pt;line-height:1.18;margin:.5mm 0 0}
+.part .txt{font-size:8.5pt;line-height:1.16;margin:.5mm 0 0}
 .wbox{border:.3mm solid #b8b8b8;border-radius:1.5mm;margin-top:1.6mm;flex:1}
-.wbox.worked{background:#fbfaf6;border-color:#c8c2a8;padding:1.2mm 1.8mm;font-size:8.5pt;line-height:1.28}
+.wbox.worked{background:#fbfaf6;border-color:#c8c2a8;padding:1mm 1.6mm;font-size:8pt;line-height:1.22}
 .wbox.worked p{margin:0 0 .5mm}
 /* ---------- YOU DO */
 .yd{position:relative;margin-top:4.6mm;border:.4mm solid #3f7cc0;border-radius:2.4mm;background:#f5f6fa;padding:4mm 3mm 2.8mm}
@@ -98,7 +98,7 @@ b,strong{font-weight:700}
 .rem b.k{font-family:Poppins;font-weight:600;color:#3f7cc0;font-size:7pt;letter-spacing:.12em;margin-right:2mm}
 .medium .rem{border-left-color:#34529a}.medium .rem b.k{color:#34529a}
 .hard .rem,.further .rem{border-left-color:#7a1f4e}.hard .rem b.k,.further .rem b.k{color:#7a1f4e}
-.round{display:flex;align-items:center;gap:2mm;margin:2.2mm 0 1.5mm;font-family:Poppins;font-weight:500;color:#3f7cc0;font-size:8.7pt;line-height:1.2}
+.round{display:flex;align-items:center;gap:2mm;margin:2mm 0 1.4mm;font-family:Poppins;font-weight:500;color:#3f7cc0;font-size:8.4pt;line-height:1.18}
 .medium .round{color:#34529a}.hard .round,.further .round{color:#7a1f4e}
 .round .pill{background:#3d3d3d;color:#fff;font-weight:600;font-size:7pt;letter-spacing:.1em;padding:.55mm 2.2mm;border-radius:1mm;white-space:nowrap;flex:none}
 .sep{border-top:.3mm dashed #b9c4da;margin-top:2.4mm;flex:none}
@@ -111,13 +111,13 @@ b,strong{font-weight:700}
 .qn{width:5.2mm;height:5.2mm;border-radius:50%;border:.35mm solid #3f7cc0;color:#3f7cc0;font:600 7.4pt Poppins;display:flex;align-items:center;justify-content:center;flex:none;background:#fff}
 .medium .qn{border-color:#34529a;color:#34529a}
 .hard .qn,.further .qn{border-color:#7a1f4e;color:#7a1f4e}
-.card .q{font-size:9pt;line-height:1.18;flex:1;padding-top:.3mm}
+.card .q{font-size:8.8pt;line-height:1.16;flex:1;padding-top:.3mm}
 .card .fig{flex:1;display:flex;align-items:center;justify-content:center;gap:1.5mm;min-height:0;padding:.6mm 0}
 .card .figt{display:flex;align-items:center;justify-content:center;gap:1.5mm;padding:1.2mm 0 .4mm}
 .tag{font-family:Poppins;font-size:6.2pt;font-weight:500;color:#555;border:.25mm solid #aaa;border-radius:1mm;padding:.1mm 1.2mm;white-space:nowrap;background:#fff;margin-left:auto;flex:none}
 .tag.x{color:#7a1f4e;border-color:#7a1f4e}
 .ln{display:flex;align-items:flex-end;gap:1.6mm;height:5.4mm;flex:none}
-.ln .k{font:500 6.2pt Poppins;color:#777;width:14.5mm;flex:none;padding-bottom:.4mm;white-space:nowrap}
+.ln .k{font:500 6.3pt Poppins;color:#666;min-width:13mm;flex:none;padding-bottom:.4mm;white-space:nowrap}
 .ln .v{flex:1;border-bottom:.25mm solid #9aa3b5;font-family:Poppins;font-weight:600;font-size:7.8pt;color:#3f7cc0;padding-bottom:.3mm;white-space:nowrap;overflow:hidden}
 .space{flex:1}
 .opts{display:flex;flex-wrap:wrap;gap:1mm 3mm;font-size:9pt;margin-top:1mm}
@@ -254,7 +254,7 @@ def notes_box(content=None, height=42, mode='student'):
     if mode == 'student' or content is None:
         return (f'<div class="box notes"><div class="hd">NOTES <span class="note">copy what your teacher writes on the board</span>'
                 f'<span class="right">Date <span class="dateln"></span></span></div>'
-                f'<div class="body dots" style="height:{height}mm"></div></div>')
+                f'<div class="body" style="height:{height}mm"></div></div>')
     if mode == 'teacher':
         return (f'<div class="box notes"><div class="hd">NOTES <span class="note">key ideas: students copy these into their booklet</span>'
                 f'<span class="right"><span class="tc">TEACHER COPY</span></span></div>'
@@ -272,7 +272,7 @@ def wedo(ex_label, instruction, parts, box_h=22, cols=4, worked=None,
         if worked:
             wb = f'<div class="wbox worked" style="min-height:{box_h}mm">{worked[i]}</div>'
         else:
-            wb = f'<div class="wbox dots" style="min-height:{box_h}mm"></div>'
+            wb = f'<div class="wbox" style="min-height:{box_h}mm"></div>'
         ps += (f'<div class="part"><div class="lab"><span class="letter">{letter}</span>{cap}</div>'
                + (f'<div class="txt">{txt}</div>' if txt else '')
                + (f'<div class="fig">{fig}</div>' if fig else '')

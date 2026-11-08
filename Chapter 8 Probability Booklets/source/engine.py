@@ -78,7 +78,7 @@ def lesson_pages(L, book, mode, footer, pno):
     yd1 = youdo(D.get('t1', 'on your own: work down the box, one round at a time. Show your working.'),
                 f'{cnt1} QUESTIONS', remember(D['rem1']) + r_html, k1, grow=True)
     p1 = (banner(L['num'], L['title'], sub, v1, L.get('alt', False)) + li_box(L['li'], L['sc'])
-          + notes_box(L['notes'], L.get('notes_h', 38), nmode) + we1 + yd1)
+          + notes_box(L['notes'], L.get('notes_h', 36), nmode) + we1 + yd1)
     pages.append(page(p1, footer, pno, 'fill'))
 
     # ---- page 2

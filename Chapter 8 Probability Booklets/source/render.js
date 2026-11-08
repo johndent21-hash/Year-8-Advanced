@@ -17,6 +17,12 @@ const path = require('path');
       p.querySelectorAll(':scope > *:not(.footer):not(.art):not(.credit):not(.lower)').forEach(e => { maxb = Math.max(maxb, e.getBoundingClientRect().bottom); });
       if (maxb > limit) out.push(`page ${i + 1}: content bottom ${(maxb - pr.top).toFixed(0)}px > limit ${(limit - pr.top).toFixed(0)}px`);
       p.querySelectorAll('.card').forEach(c => { if (c.scrollHeight > c.clientHeight + 2) out.push(`page ${i + 1}: card overflow ${c.innerText.slice(0, 40).replace(/\n/g, ' ')}`); });
+      p.querySelectorAll('.notes .body, .wbox, .infobox, .ticket, .summ, .hwcell, .rq').forEach(c => {
+        const cb = c.getBoundingClientRect().bottom; let mb = 0;
+        c.querySelectorAll('*').forEach(e => { const r = e.getBoundingClientRect(); if (r.height > 0) mb = Math.max(mb, r.bottom); });
+        if (mb > cb + 1) out.push(`page ${i + 1}: CLIPPED ${c.className} by ${(mb - cb).toFixed(0)}px: ${c.innerText.slice(0, 30).replace(/\n/g, ' ')}`);
+      });
+      p.querySelectorAll('.ans').forEach(c => { if (c.scrollWidth > c.clientWidth + 4) out.push(`page ${i + 1}: answer columns overflow`); });
     });
     return out;
   });
