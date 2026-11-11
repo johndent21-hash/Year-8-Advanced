@@ -52,7 +52,8 @@ def week_page(wk, num):
 
 
 def cover():
-    chips = ''.join(f'<span style="--c:{WEEKCOL[n]}">Week {n}</span>' for n in range(1, 7))
+    cc = ['#CC338B', '#EAA221', '#43B3AE', '#E4D00A', '#CC338B', '#43B3AE']
+    chips = ''.join(f'<span style="--c:{cc[n-1]}' + (';color:#3d3500' if cc[n-1] == '#E4D00A' else '') + f'">Week {n}</span>' for n in range(1, 7))
     return ('<section class="page cover"><div class="cimg"></div><div class="cshade"></div>'
             '<div class="ctop"><span>Kingscliff High School · Mathematics</span><span class="ser">Julia series</span></div>'
             '<div class="ctext"><div class="csm">Year 8 Advanced → Year 9 Advanced</div>'

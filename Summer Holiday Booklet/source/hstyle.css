@@ -61,21 +61,25 @@ table.tv td:first-child { background: #f3f4f6; font-weight: 600; }
 .bq { flex: 0 0 60%; font-size: 8.9pt; align-self: center; }
 .bonus .wk { margin: 0; }
 
-/* cover */
+/* cover (light summer theme: #CC338B #EAA221 #43B3AE #E4D00A) */
+.cover { background: #fffdf5; }
 .cover .cimg { position: absolute; inset: 0; background: url(img/cover.jpg) center/cover; }
-.cover .cshade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,10,40,.0) 40%, rgba(15,10,40,.78) 68%, rgba(15,10,40,.94) 100%); }
-.ctop { position: absolute; top: 10mm; left: 14mm; right: 14mm; display: flex; justify-content: space-between; color: #fff; font-size: 8.5pt;
-  letter-spacing: .14em; text-transform: uppercase; font-weight: 700;  }
-.ser { border: 0.7pt solid rgba(255,255,255,.8); border-radius: 10mm; padding: .6mm 3mm; }
-.ctext { position: absolute; left: 14mm; right: 14mm; bottom: 15mm; color: #fff; }
-.csm { font-size: 9.5pt; letter-spacing: .14em; text-transform: uppercase; color: #ffd8a8; font-weight: 700; }
-.cover h1 { font-size: 54pt; font-weight: 900; margin: 2mm 0 0; line-height: .95; letter-spacing: -.025em; }
-.csub { font-size: 24pt; font-weight: 300; color: #ffc9a3; margin: 1mm 0 4mm; }
-.ctext p { font-size: 11pt; line-height: 1.45; max-width: 150mm; margin: 0 0 6mm; opacity: .93; }
+.cover .cshade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,253,245,.0) 38%, rgba(255,253,245,.82) 58%, rgba(255,253,245,.97) 72%, #fffdf5 100%); }
+.ctop { position: absolute; top: 9mm; left: 14mm; right: 14mm; display: flex; justify-content: space-between; color: #1f2430; font-size: 8.5pt;
+  letter-spacing: .14em; text-transform: uppercase; font-weight: 800; }
+.ctop > span { background: rgba(255,255,255,.9); border-radius: 10mm; padding: .8mm 3.2mm; }
+.ser { border: 0.9pt solid #43B3AE; color: #2c8f8a; }
+.ctext { position: absolute; left: 14mm; right: 14mm; bottom: 15mm; color: #1f2430; }
+.csm { font-size: 9.5pt; letter-spacing: .14em; text-transform: uppercase; color: #2c8f8a; font-weight: 800; }
+.cover h1 { font-size: 56pt; font-weight: 900; margin: 2mm 0 0; line-height: .95; letter-spacing: -.025em; color: #CC338B; }
+.csub { font-size: 25pt; font-weight: 800; color: #EAA221; margin: 1mm 0 4mm; }
+.csub::after { content: ''; display: block; width: 46mm; height: 1.6mm; border-radius: 1mm; margin-top: 2.5mm;
+  background: linear-gradient(90deg, #CC338B 0 25%, #EAA221 25% 50%, #43B3AE 50% 75%, #E4D00A 75% 100%); }
+.ctext p { font-size: 11pt; line-height: 1.45; max-width: 150mm; margin: 0 0 6mm; color: #374151; }
 .cchips { display: flex; gap: 2mm; margin-bottom: 9mm; }
-.cchips span { flex: 1; text-align: center; padding: 2mm 0; border-radius: 2mm; background: var(--c); font-weight: 800; font-size: 9pt; }
+.cchips span { flex: 1; text-align: center; padding: 2mm 0; border-radius: 2mm; background: var(--c); color: #fff; font-weight: 800; font-size: 9pt; }
 .cname { display: grid; grid-template-columns: 2fr 1fr; gap: 8mm; }
-.cname span { border-bottom: 0.8pt solid rgba(255,255,255,.75); padding-bottom: 7mm; font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; }
+.cname span { border-bottom: 0.9pt solid #43B3AE; padding-bottom: 7mm; font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: #4b5563; font-weight: 700; }
 
 /* header band (non-week pages) */
 .hband h2 { position: absolute; left: 10mm; top: 7mm; margin: 0; background: rgba(255,255,255,.92); border-radius: 4mm; padding: 2mm 5mm;
