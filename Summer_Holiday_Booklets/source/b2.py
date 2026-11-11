@@ -1,0 +1,228 @@
+"""Year 8 Standard -> Year 9 Standard (Stage 4 revision, Stage 5 core preview)."""
+from qlib import Q, B, xy, stemleaf
+import diagrams as D
+
+BK = dict(
+    key='b2',
+    file='Yr8_Standard_Summer_Holiday_Ready_for_Yr9_Standard_Revision_Booklet',
+    kicker='YEAR 8 STANDARD → YEAR 9 STANDARD',
+    ready='Ready for Year 9',
+    intro='Six weeks. Twenty questions a week. Every Year 8 skill that Year 9 Standard builds on – mixed together so it sticks.',
+    star_text='Year 9 preview (Stage 5)',
+    pattern='Question 1 is always integers, question 11 is always Pythagoras, and so on. If the same number keeps going wrong, that is the skill to revise before Year 9.',
+    groups=[('Number', '', [1, 2, 3]), ('Indices & roots', '', [4, 5]), ('Algebra', '', [6, 7, 8]),
+            ('Equations', '', [9, 10]), ('Measurement', '', [11, 12, 13]), ('Rates & graphs', '', [14, 15]),
+            ('Angles, data & chance', '', [16, 17, 18]), ('In context', '', [19, 20])],
+    strands={1: 'Integers', 2: 'Fractions & decimals', 3: 'Percentages', 4: 'Indices', 5: 'Squares & roots',
+             6: 'Simplify & substitute', 7: 'Expand', 8: 'Factorise', 9: 'Equations', 10: 'Formulas',
+             11: 'Pythagoras', 12: 'Area & perimeter', 13: 'Volume', 14: 'Ratios & rates', 15: 'Number plane & lines',
+             16: 'Angles', 17: 'Data', 18: 'Probability', 19: 'Money in context', 20: 'Measurement in context'},
+    rules=['<b>No calculator.</b> Leave answers exact (e.g. $9\\pi$) unless asked to round.',
+           '<b>Show working</b> in the space under each question.',
+           '<b>Mark it yourself</b> using the answers at the back (pages 10–12). Each answer has a line of working to help you find a mistake.',
+           '<b>Fix it.</b> Redo anything you got wrong a day or two later, without looking.',
+           '<span class="star">★</span> questions preview Year 9 (Stage 5) work. Have a go – they are the ones that will help most in Term 1.',
+           '<b>Stuck?</b> The hints page (page 9) has the key facts and formulas.'],
+    first_up='<b>First up in Year 9 Standard:</b> products and factors, Pythagoras’ theorem, percentages and rates, trigonometry and indices. Every one of them starts from the skills in these six pages.',
+    outcomes='Revises MA4-INT-C-01, MA4-FRC-C-01, MA4-IND-C-01, MA4-ALG-C-01, MA4-EQU-C-01, MA4-LIN-C-01, MA4-PYT-C-01, MA4-LEN-C-01, MA4-ARE-C-01, MA4-VOL-C-01, MA4-RAT-C-01, MA4-ANG-C-01, MA4-GEO-C-01, MA4-DAT-C-02, MA4-PRO-C-01. <span class="star">★</span> Year 9 preview (Stage 5 core): MA5-FIN-C-01, MA5-ALG-C-01, MA5-IND-C-01, MA5-EQU-C-01, MA5-LIN-C-01, MA5-LIN-C-02, MA5-TRG-C-01, MA5-DAT-C-01, MA5-PRO-C-01.',
+)
+
+W, BON = [], []
+
+# ---------------- Week 1 ----------------
+W.append([
+    Q('Evaluate $-9 + 4 \\times 3$', '$3$', 'multiply first: $-9 + 12$', c=('eq', '-9+4*3', '3')),
+    Q('Evaluate $\\dfrac{5}{6} - \\dfrac{1}{3}$', '$\\frac{1}{2}$', '$\\frac{5}{6} - \\frac{2}{6} = \\frac{3}{6}$', c=('eq', 'Rational(5,6)-Rational(1,3)', 'Rational(1,2)')),
+    Q('Find $20\\%$ of \\$45.', '\\$9', '$10\\% = 4.50$; double it', c=('eq', '45*Rational(20,100)', '9')),
+    Q('Evaluate $3^4$', '$81$', '$3 \\times 3 \\times 3 \\times 3$', c=('eq', '3**4', '81')),
+    Q('Evaluate $\\sqrt{64} - \\sqrt[3]{27}$', '$5$', '$8 - 3$', c=('eq', 'sqrt(64)-27**Rational(1,3)', '5')),
+    Q('Simplify $6m + 2n - m + 5n$', '$5m + 7n$', '$6m - m$ and $2n + 5n$', c=('eq', '6*m+2*n-m+5*n', '5*m+7*n')),
+    Q('Expand $5(x + 6)$', '$5x + 30$', '$5 \\times x + 5 \\times 6$', c=('eq', 'expand(5*(x+6))', '5*x+30')),
+    Q('Factorise $4x + 20$', '$4(x + 5)$', 'HCF = 4', c=('fac', '4*x+20', '4*(x+5)')),
+    Q('Solve $2x + 7 = 19$', '$x = 6$', '$2x = 12$', c=('solve', '2*x+7', '19', 'x', ['6'])),
+    Q('$A = lb$. Find $A$ when $l = 12$ and $b = 7$.', '$A = 84$', '$12 \\times 7$', c=('eq', '12*7', '84')),
+    Q('Find $c$. (cm)', '15 cm', '$c^2 = 81 + 144 = 225$', d=D.right_triangle(9, 12, '9', '12', 'c'), c=('eq', 'sqrt(9**2+12**2)', '15')),
+    Q('Find the area of a triangle with base 14 cm and perpendicular height 5 cm.', '35 cm²', '$\\frac{1}{2} \\times 14 \\times 5$', c=('eq', 'Rational(1,2)*14*5', '35')),
+    Q('Find the volume of a rectangular prism 8 cm by 5 cm by 3 cm.', '120 cm³', '$8 \\times 5 \\times 3$', c=('eq', '8*5*3', '120')),
+    Q('Simplify the ratio $15 : 25$', '$3 : 5$', 'divide both parts by 5', c=('py', '__import__("math").gcd(15,25)==5')),
+    Q('Complete the table for $y = 3x + 1$.', '$-2,\\ 1,\\ 4,\\ 7$', 'e.g. $3(-1) + 1 = -2$', x=xy([-1, 0, 1, 2], ['', '', '', '']),
+      c=('py', '[3*x+1 for x in (-1,0,1,2)]==[-2,1,4,7]')),
+    Q('Find $a$.', '$a = 35$', 'angles on a straight line: $180 - 145$', d=D.straight_line(145, '145°', 'a°'), c=('eq', '180-145', '35')),
+    Q('Find the mean of $5,\\ 8,\\ 6,\\ 9,\\ 7$.', '$7$', '$35 \\div 5$', c=('eq', 'Rational(5+8+6+9+7,5)', '7')),
+    Q('A fair die is rolled. Find $P(\\text{less than } 3)$.', '$\\frac{1}{3}$', '$\\{1, 2\\}$: $\\frac{2}{6}$', c=('eq', 'Rational(2,6)', 'Rational(1,3)')),
+    Q('Jack works 12 hours at a surf shop and is paid \\$22 an hour. How much does he earn?', '\\$264', '$12 \\times 22$', s=True, c=('eq', '12*22', '264')),
+    Q('A garden bed 6 m by 2.5 m needs edging all the way around. How much edging is needed?', '17 m', '$2(6 + 2.5)$', c=('eq', '2*(6+2.5)', '17')),
+])
+BON.append(B('Find two numbers whose sum is 20 and whose difference is 6.', '13 and 7', '$13 + 7 = 20$, $13 - 7 = 6$', c=('py', '(13+7, 13-7)==(20,6)')))
+
+# ---------------- Week 2 ----------------
+W.append([
+    Q('Evaluate $-24 \\div 6 - (-5)$', '$1$', '$-4 + 5$', c=('eq', '-24/6-(-5)', '1')),
+    Q('Evaluate $2\\tfrac{1}{3} \\times \\dfrac{3}{7}$', '$1$', '$\\frac{7}{3} \\times \\frac{3}{7}$', c=('eq', 'Rational(7,3)*Rational(3,7)', '1')),
+    Q('Increase \\$60 by $10\\%$.', '\\$66', '$60 + 6$', c=('eq', '60*Rational(110,100)', '66')),
+    Q('Write 48 as a product of prime factors in index form.', '$2^4 \\times 3$', '$48 = 16 \\times 3$', c=('eq', '2**4*3', '48')),
+    Q('Between which two consecutive whole numbers does $\\sqrt{50}$ lie?', '7 and 8', '$49 < 50 < 64$', c=('py', '7 < 50**0.5 < 8')),
+    Q('If $a = 4$ and $b = -2$, find the value of $3a + 2b$.', '$8$', '$12 + (-4)$', c=('eq', '3*4+2*(-2)', '8')),
+    Q('Expand and simplify $2(x + 3) + 4x$', '$6x + 6$', '$2x + 6 + 4x$', c=('eq', 'expand(2*(x+3)+4*x)', '6*x+6')),
+    Q('Factorise $6y - 9$', '$3(2y - 3)$', 'HCF = 3', c=('fac', '6*y-9', '3*(2*y-3)')),
+    Q('Solve $\\dfrac{x}{5} - 2 = 4$', '$x = 30$', '$\\frac{x}{5} = 6$', c=('solve', 'x/5-2', '4', 'x', ['30'])),
+    Q('$P = 2(l + w)$. Find $P$ when $l = 9$ and $w = 6$.', '$P = 30$', '$2 \\times 15$', c=('eq', '2*(9+6)', '30')),
+    Q('A right-angled triangle has shorter sides 5 cm and 12 cm. Find the length of the hypotenuse.', '13 cm', '$25 + 144 = 169$', c=('eq', 'sqrt(5**2+12**2)', '13')),
+    Q('Find the area of a circle with radius 3 cm, in terms of $\\pi$.', '$9\\pi$ cm²', '$\\pi \\times 3^2$', c=('eq', 'pi*3**2', '9*pi')),
+    Q('A prism has a cross-section of area 24 cm² and length 10 cm. Find its volume.', '240 cm³', '$V = Ah = 24 \\times 10$', c=('eq', '24*10', '240')),
+    Q('A car uses 8 L of fuel for every 100 km. How much fuel does it use for 350 km?', '28 L', '$3.5 \\times 8$', c=('eq', '350/100*8', '28')),
+    Q('Does the point $(2,\\ 9)$ lie on the line $y = 4x + 1$?', 'Yes', '$4(2) + 1 = 9$ ✓', c=('py', '4*2+1==9')),
+    Q('Find $x$.', '$x = 60$', 'angle sum: $180 - 35 - 85$', d=D.triangle(35, 85, ('35°', '85°', 'x°')), c=('eq', '180-35-85', '60')),
+    Q('Find the median of $12,\\ 7,\\ 9,\\ 15,\\ 10,\\ 8$.', '$9.5$', '7, 8, <b>9, 10</b>, 12, 15: $\\frac{9 + 10}{2}$', c=('eq', 'Rational(9+10,2)', 'Rational(19,2)')),
+    Q('A bag holds 3 red, 5 green and 4 yellow marbles. Find $P(\\text{not green})$.', '$\\frac{7}{12}$', '7 of the 12 are not green', c=('eq', 'Rational(3+4,12)', 'Rational(7,12)')),
+    Q('A surfboard costs \\$440, including $10\\%$ GST. How much of the price is GST?', '\\$40', '\\$440 is $110\\%$; $1\\% = 4$, so $10\\% = 40$', c=('eq', '440/Rational(110,100)*Rational(10,100)', '40')),
+    Q('A water tank holds 4.5 kL. How many litres is this?', '4500 L', '$1 \\text{ kL} = 1000 \\text{ L}$', c=('eq', '4.5*1000', '4500')),
+])
+BON.append(B('The angles of a triangle are $x^\\circ$, $2x^\\circ$ and $3x^\\circ$. Find $x$.', '$x = 30$', '$6x = 180$; angles $30^\\circ, 60^\\circ, 90^\\circ$', c=('solve', 'x+2*x+3*x', '180', 'x', ['30'])))
+
+# ---------------- Week 3 ----------------
+W.append([
+    Q('Evaluate $(-3)^2 + (-2)^3$', '$1$', '$9 + (-8)$', c=('eq', '(-3)**2+(-2)**3', '1')),
+    Q('Evaluate $0.8 \\times 0.05$', '$0.04$', '$8 \\times 5 = 40$; 3 decimal places: 0.040', c=('eq', 'Rational(8,10)*Rational(5,100)', 'Rational(4,100)')),
+    Q('Write 18 out of 24 as a percentage.', '$75\\%$', '$\\frac{18}{24} = \\frac{3}{4}$', c=('eq', 'Rational(18,24)*100', '75')),
+    Q('Evaluate $2^3 \\times 5^2$', '$200$', '$8 \\times 25$', c=('eq', '2**3*5**2', '200')),
+    Q('Evaluate $\\sqrt{9} \\times \\sqrt{16}$', '$12$', '$3 \\times 4$ (or $\\sqrt{144}$)', c=('eq', 'sqrt(9)*sqrt(16)', '12')),
+    Q('Simplify $3x \\times 5y$', '$15xy$', '$3 \\times 5 = 15$', c=('eq', '3*x*5*y', '15*x*y')),
+    Q('Expand $-3(2x - 4)$', '$-6x + 12$', '$-3 \\times 2x$ and $-3 \\times (-4)$', c=('eq', 'expand(-3*(2*x-4))', '-6*x+12')),
+    Q('Factorise $12a + 18b$', '$6(2a + 3b)$', 'HCF = 6', c=('fac', '12*a+18*b', '6*(2*a+3*b)')),
+    Q('Solve $5x - 3 = 2x + 9$', '$x = 4$', '$3x - 3 = 9$, $3x = 12$', c=('solve', '5*x-3', '2*x+9', 'x', ['4'])),
+    Q('$v = u + at$. Find $v$ when $u = 4$, $a = 3$ and $t = 6$.', '$v = 22$', '$4 + 18$', c=('eq', '4+3*6', '22')),
+    Q('Find $x$. (cm)', '8 cm', '$x^2 = 100 - 36 = 64$', d=D.right_triangle(6, 8, '6', 'x', '10'), c=('eq', 'sqrt(10**2-6**2)', '8')),
+    Q('Find the area of a trapezium with parallel sides 7 cm and 11 cm and perpendicular height 6 cm.', '54 cm²', '$\\frac{6}{2}(7 + 11) = 3 \\times 18$', c=('eq', 'Rational(6,2)*(7+11)', '54')),
+    Q('Find the volume of a cylinder with radius 3 cm and height 10 cm, in terms of $\\pi$.', '$90\\pi$ cm³', '$\\pi \\times 9 \\times 10$', c=('eq', 'pi*3**2*10', '90*pi')),
+    Q('Share \\$80 in the ratio $3 : 5$.', '\\$30 and \\$50', '8 parts: \\$10 each', c=('py', '(80*3//8, 80*5//8)==(30,50)')),
+    Q('Find the gradient of the interval joining $(1,\\ 3)$ and $(4,\\ 9)$.', '$2$', '$\\frac{\\text{rise}}{\\text{run}} = \\frac{9 - 3}{4 - 1} = \\frac{6}{3}$', s=True, c=('eq', 'Rational(9-3,4-1)', '2')),
+    Q('The lines are parallel. Find $x$.', '$x = 58$', 'alternate angles are equal', d=D.parallel(58, 'alt', '58°', 'x°'), c=('eq', '58', '58')),
+    Q('Find the range and the mode of $4,\\ 9,\\ 7,\\ 9,\\ 2,\\ 6$.', 'range 7, mode 9', 'range $9 - 2$', c=('py', 'max(L)-min(L)==7 and max(set(L),key=L.count)==9', {'L': [4, 9, 7, 9, 2, 6]})),
+    Q('The probability that a spinner lands on red is $0.45$. Find $P(\\text{not red})$.', '$0.55$', '$1 - 0.45$', c=('eq', '1-Rational(45,100)', 'Rational(55,100)')),
+    Q('Ava earns \\$25 an hour. She works 8 hours at the normal rate and 2 hours at time-and-a-half. Find her pay.', '\\$275', '$8 \\times 25 + 2 \\times 37.50 = 200 + 75$', s=True, c=('eq', '8*25+2*25*Rational(3,2)', '275')),
+    Q('A pool is 10 m long, 5 m wide and 1.5 m deep. How many litres does it hold? ($1 \\text{ m}^3 = 1000$ L)', '75 000 L', '$10 \\times 5 \\times 1.5 = 75 \\text{ m}^3$', c=('eq', '10*5*1.5*1000', '75000')),
+])
+BON.append(B('Show that the sum of two consecutive odd numbers is always a multiple of 4.', '$(2n + 1) + (2n + 3) = 4n + 4 = 4(n + 1)$', 'a multiple of 4 for every whole number $n$', c=('eq', 'expand((2*n+1)+(2*n+3))', '4*(n+1)')))
+
+# ---------------- Week 4 ----------------
+W.append([
+    Q('Evaluate $-5 \\times (-4) - 30 \\div 6$', '$15$', '$20 - 5$', c=('eq', '-5*(-4)-30/6', '15')),
+    Q('Evaluate $\\dfrac{3}{4} \\div \\dfrac{1}{8}$', '$6$', '$\\frac{3}{4} \\times 8$', c=('eq', 'Rational(3,4)/Rational(1,8)', '6')),
+    Q('Decrease \\$150 by $30\\%$.', '\\$105', '$30\\%$ of 150 = 45; $150 - 45$', c=('eq', '150*Rational(70,100)', '105')),
+    Q('Write as a single power: $4^6 \\times 4^2$', '$4^8$', 'add the indices', c=('eq', '4**6*4**2', '4**8')),
+    Q('Estimate $\\sqrt{40}$ to the nearest whole number.', '$6$', '$6^2 = 36$ and $7^2 = 49$; 40 is closer to 36', c=('py', 'round(40**0.5)==6')),
+    Q('If $x = -3$, find the value of $x^2 - 2x$.', '$15$', '$9 - (-6) = 9 + 6$', c=('eq', '(-3)**2-2*(-3)', '15')),
+    Q('Expand $(x + 2)(x + 5)$', '$x^2 + 7x + 10$', '$x^2 + 5x + 2x + 10$', s=True, c=('eq', 'expand((x+2)*(x+5))', 'x**2+7*x+10')),
+    Q('Factorise $8x^2 + 12x$', '$4x(2x + 3)$', 'HCF = $4x$', c=('fac', '8*x**2+12*x', '4*x*(2*x+3)')),
+    Q('Solve $4(x - 3) = 20$', '$x = 8$', '$x - 3 = 5$', c=('solve', '4*(x-3)', '20', 'x', ['8'])),
+    Q('$F = 1.8C + 32$. Find $F$ when $C = 25$.', '$F = 77$', '$45 + 32$', c=('eq', '1.8*25+32', '77')),
+    Q('Is a triangle with sides 8 cm, 15 cm and 17 cm right-angled? Explain.', 'Yes', '$64 + 225 = 289 = 17^2$', c=('py', '8**2+15**2==17**2')),
+    Q('Find the area. (cm)', '81 cm²', '$12 \\times 8 - 5 \\times 3 = 96 - 15$',
+      d=D.lshape(12, 8, 5, 3, {'bottom': '12', 'left': '8', 'notch_h': '5', 'notch_v': '3'}), c=('eq', '12*8-5*3', '81')),
+    Q('A cube has a volume of 64 cm³. How long is each edge?', '4 cm', '$4 \\times 4 \\times 4 = 64$', c=('eq', '64**Rational(1,3)', '4')),
+    Q('A cyclist travels 45 km in 1.5 hours. Find the average speed.', '30 km/h', '$45 \\div 1.5$', c=('eq', '45/1.5', '30')),
+    Q('Find the point where the lines $y = 2x$ and $y = x + 3$ meet.', '$(3,\\ 6)$', '$2x = x + 3$, so $x = 3$', c=('solve', '2*x', 'x+3', 'x', ['3'])),
+    Q('Three angles of a quadrilateral are $100^\\circ$, $75^\\circ$ and $90^\\circ$. Find the fourth.', '$95^\\circ$', '$360 - 265$', c=('eq', '360-100-75-90', '95')),
+    Q('Find the interquartile range of $2,\\ 4,\\ 5,\\ 7,\\ 8,\\ 10,\\ 11,\\ 13$.', '$6$', '$Q_1 = 4.5$, $Q_3 = 10.5$', s=True,
+      c=('py', 'median(L[:4])==4.5 and median(L[4:])==10.5', {'L': [2, 4, 5, 7, 8, 10, 11, 13], 'median': __import__('statistics').median})),
+    Q('A letter is chosen at random from the word SYDNEY. Find $P(\\text{Y})$.', '$\\frac{1}{3}$', '2 Y’s out of 6 letters', c=('eq', 'Rational("SYDNEY".count("Y"),6)', 'Rational(1,3)')),
+    Q('A \\$40 beach umbrella is reduced by $25\\%$. Find the sale price.', '\\$30', '$25\\%$ of 40 = 10', c=('eq', '40*Rational(75,100)', '30')),
+    Q('A circular trampoline mat has a diameter of 4 m. Find its area in terms of $\\pi$.', '$4\\pi$ m²', '$r = 2$: $\\pi \\times 2^2$', c=('eq', 'pi*2**2', '4*pi')),
+])
+BON.append(B('A rectangle’s length is 3 cm more than its width, and its perimeter is 26 cm. Find its area.', '40 cm²', 'width 5, length 8: $2(5 + 8) = 26$', c=('py', '[(w,w+3) for w in range(1,13) if 2*(w+w+3)==26]==[(5,8)] and 5*8==40')))
+
+# ---------------- Week 5 ----------------
+W.append([
+    Q('Evaluate $(-6 + 2) \\times (-3) - 4$', '$8$', '$(-4)(-3) - 4 = 12 - 4$', c=('eq', '(-6+2)*(-3)-4', '8')),
+    Q('Evaluate $1\\tfrac{3}{4} + 2\\tfrac{5}{8}$', '$4\\tfrac{3}{8}$', '$\\frac{14}{8} + \\frac{21}{8} = \\frac{35}{8}$', c=('eq', 'Rational(7,4)+Rational(21,8)', 'Rational(35,8)')),
+    Q('An item bought for \\$80 is sold for \\$100. Find the profit as a percentage of the cost price.', '$25\\%$', '$\\frac{20}{80} \\times 100\\%$', c=('eq', 'Rational(20,80)*100', '25')),
+    Q('Evaluate $7^0 + 2^5$', '$33$', '$1 + 32$', c=('eq', '7**0+2**5', '33')),
+    Q('Solve $x^2 = 49$', '$x = 7$ or $x = -7$', '$7^2 = 49$ and $(-7)^2 = 49$', c=('solve', 'x**2', '49', 'x', ['7', '-7'])),
+    Q('Simplify $3x^2 \\times 4x^3$', '$12x^5$', '$3 \\times 4$; add the indices', s=True, c=('eq', '3*x**2*4*x**3', '12*x**5')),
+    Q('Expand and simplify $4(2x - 1) - 3(x + 2)$', '$5x - 10$', '$8x - 4 - 3x - 6$', c=('eq', 'expand(4*(2*x-1)-3*(x+2))', '5*x-10')),
+    Q('Factorise $15mn - 10m$', '$5m(3n - 2)$', 'HCF = $5m$', c=('fac', '15*m*n-10*m', '5*m*(3*n-2)')),
+    Q('Solve $\\dfrac{x + 4}{3} = 5$', '$x = 11$', '$x + 4 = 15$', c=('solve', '(x+4)/3', '5', 'x', ['11'])),
+    Q('$A = lb$. Find $b$ when $A = 54$ and $l = 9$.', '$b = 6$', '$54 = 9b$', c=('solve', '9*b', '54', 'b', ['6'])),
+    Q('A 5 m ladder leans against a wall with its foot 3 m from the wall. How high up the wall does it reach?', '4 m', '$h^2 = 25 - 9 = 16$', c=('eq', 'sqrt(5**2-3**2)', '4')),
+    Q('Find the area of a kite with diagonals 10 cm and 7 cm.', '35 cm²', '$\\frac{1}{2} \\times 10 \\times 7$', c=('eq', 'Rational(1,2)*10*7', '35')),
+    Q('A triangular prism has a triangle with base 6 cm and height 5 cm as its cross-section, and length 12 cm. Find its volume.', '180 cm³', '$A = 15$; $V = 15 \\times 12$', c=('eq', 'Rational(1,2)*6*5*12', '180')),
+    Q('Which is the better buy: 500 g for \\$4.50 or 750 g for \\$6.00?', '750 g for \\$6.00', '\\$0.90 vs \\$0.80 per 100 g', c=('py', '6.00/7.5 < 4.50/5')),
+    Q('Find the gradient of the interval joining $(-2,\\ 5)$ and $(2,\\ -3)$.', '$-2$', '$\\frac{-3 - 5}{2 - (-2)} = \\frac{-8}{4}$', s=True, c=('eq', 'Rational(-3-5,2-(-2))', '-2')),
+    Q('Find $x$.', '$x = 20$', 'vertically opposite: $3x + 10 = 70$', d=D.crossing_lines(70, '(3x + 10)°', '70°'), c=('solve', '3*x+10', '70', 'x', ['20'])),
+    Q('The mean of five numbers is 12. Four of them are 8, 15, 10 and 14. Find the fifth.', '13', 'total $5 \\times 12 = 60$; $60 - 47$', c=('eq', '5*12-(8+15+10+14)', '13')),
+    Q('Two coins are tossed. Find $P(\\text{two heads})$.', '$\\frac{1}{4}$', 'HH, HT, TH, TT: 1 of 4', s=True, c=('eq', 'Rational(1,2)*Rational(1,2)', 'Rational(1,4)')),
+    Q('Mia earns a salary of \\$62 400 a year. How much is she paid each week? (1 year = 52 weeks)', '\\$1200', '$62\\,400 \\div 52$', s=True, c=('eq', '62400/52', '1200')),
+    Q('A 2 m by 3 m rug is placed in a room 5 m by 4 m. What area of floor is not covered?', '14 m²', '$20 - 6$', c=('eq', '5*4-2*3', '14')),
+])
+BON.append(B('Expand and simplify $(x + 3)^2 - x^2$', '$6x + 9$', '$x^2 + 6x + 9 - x^2$', c=('eq', 'expand((x+3)**2-x**2)', '6*x+9')))
+
+# ---------------- Week 6 ----------------
+W.append([
+    Q('Evaluate $-48 \\div (-8) + (-2) \\times 7$', '$-8$', '$6 + (-14)$', c=('eq', '-48/(-8)+(-2)*7', '-8')),
+    Q('Evaluate $2\\tfrac{1}{2} \\div 1\\tfrac{1}{4}$', '$2$', '$\\frac{5}{2} \\times \\frac{4}{5}$', c=('eq', 'Rational(5,2)/Rational(5,4)', '2')),
+    Q('After a $20\\%$ discount, a shirt costs \\$36. What was the original price?', '\\$45', '\\$36 is $80\\%$; $10\\% = 4.50$', c=('eq', '36/Rational(80,100)', '45')),
+    Q('Evaluate $2^{-3}$', '$\\frac{1}{8}$', '$\\frac{1}{2^3}$', s=True, c=('eq', 'Rational(2)**-3', 'Rational(1,8)')),
+    Q('Evaluate $\\sqrt{6^2 + 8^2}$', '$10$', '$\\sqrt{36 + 64} = \\sqrt{100}$', c=('eq', 'sqrt(6**2+8**2)', '10')),
+    Q('Simplify $18a^2b \\div 6ab$', '$3a$', '$\\frac{18}{6} = 3$; $\\frac{a^2b}{ab} = a$', c=('eq', '18*a**2*b/(6*a*b)', '3*a')),
+    Q('Expand $(x - 4)(x + 3)$', '$x^2 - x - 12$', '$x^2 + 3x - 4x - 12$', s=True, c=('eq', 'expand((x-4)*(x+3))', 'x**2-x-12')),
+    Q('Factorise $-6x - 15$', '$-3(2x + 5)$', 'take out $-3$', c=('fac', '-6*x-15', '-3*(2*x+5)')),
+    Q('Solve $3(2x - 1) = 4x + 9$', '$x = 6$', '$6x - 3 = 4x + 9$, $2x = 12$', s=True, c=('solve', '3*(2*x-1)', '4*x+9', 'x', ['6'])),
+    Q('$A = \\frac{1}{2}(a + b)h$. Find $h$ when $A = 40$, $a = 6$ and $b = 10$.', '$h = 5$', '$40 = 8h$', c=('solve', 'Rational(1,2)*(6+10)*h', '40', 'h', ['5'])),
+    Q('For angle $\\theta$, name the opposite side and write $\\tan\\theta$ as a fraction.', 'opposite = 3; $\\tan\\theta = \\frac{3}{4}$', '$\\tan\\theta = \\frac{\\text{opposite}}{\\text{adjacent}}$', s=True,
+      d=D.right_triangle(3, 4, '3', '4', '5', theta='base'), c=('eq', 'Rational(3,4)', 'Rational(3,4)')),
+    Q('Find the perimeter of a semicircle with radius 6 cm, in terms of $\\pi$.', '$(6\\pi + 12)$ cm', 'half of $2\\pi \\times 6$, plus the diameter 12', c=('eq', 'Rational(1,2)*2*pi*6+12', '6*pi+12')),
+    Q('A cylinder has a volume of $200\\pi$ cm³ and a radius of 5 cm. Find its height.', '8 cm', '$200\\pi = \\pi \\times 25 \\times h$', c=('solve', 'pi*25*h', '200*pi', 'h', ['8'])),
+    Q('A map has a scale of $1 : 50\\,000$. Two towns are 6 cm apart on the map. How far apart are they, in km?', '3 km', '$6 \\times 50\\,000 = 300\\,000$ cm', c=('eq', '6*50000/100000', '3')),
+    Q('Write the equation of the line with gradient 2 and $y$-intercept $-3$.', '$y = 2x - 3$', '$y = mx + c$', s=True, c=('man', 'y=mx+c with m=2, c=-3')),
+    Q('The lines are parallel. Find $x$.', '$x = 30$', 'co-interior: $2x + 120 = 180$', d=D.parallel(60, 'coint', '120°', '2x°'), c=('solve', '2*x+120', '180', 'x', ['30'])),
+    Q('For $3,\\ 4,\\ 4,\\ 5,\\ 34$, which is most affected by the outlier: the mean, median or mode?', 'the mean', 'mean 10; median 4; mode 4', c=('py', 'sum(L)/5==10 and sorted(L)[2]==4', {'L': [3, 4, 4, 5, 34]})),
+    Q('A whole number from 1 to 30 is chosen at random. Find $P(\\text{multiple of 4 or 6})$.', '$\\frac{1}{3}$', '4, 6, 8, 12, 16, 18, 20, 24, 28, 30: $\\frac{10}{30}$',
+      c=('eq', 'Rational(len([n for n in range(1,31) if n%4==0 or n%6==0]),30)', 'Rational(1,3)')),
+    Q('Leo invests \\$5000 at $4\\%$ p.a. simple interest. How much interest does he earn in 3 years?', '\\$600', '$I = Prn = 5000 \\times 0.04 \\times 3$', c=('eq', '5000*Rational(4,100)*3', '600')),
+    Q('A cylindrical tank has radius 1 m and height 2 m. Find its capacity in litres, in terms of $\\pi$. ($1 \\text{ m}^3 = 1000$ L)', '$2000\\pi$ L', '$V = \\pi \\times 1^2 \\times 2 = 2\\pi \\text{ m}^3$', c=('eq', 'pi*1**2*2*1000', '2000*pi')),
+])
+BON.append(B('A right-angled triangle has hypotenuse 5 and shorter sides $x$ and $x + 1$. Find $x$.', '$x = 3$', '$x^2 + (x + 1)^2 = 25$; sides 3, 4, 5',
+             c=('py', '[v for v in sp.solve(x**2+(x+1)**2-25, x) if v>0]==[3]', {'sp': __import__('sympy')})))
+
+BK['weeks'] = W
+BK['bonus'] = BON
+
+BK['hints'] = [
+    ('Number', ['Order of operations: brackets, powers, × and ÷, then + and −',
+                '$\\frac{a}{b} \\div \\frac{c}{d} = \\frac{a}{b} \\times \\frac{d}{c}$',
+                'Increase by $10\\%$: $\\times 1.1$ · decrease by $30\\%$: $\\times 0.7$',
+                '% profit $= \\dfrac{\\text{profit}}{\\text{cost price}} \\times 100\\%$',
+                'Price with GST is $110\\%$ of the price without GST']),
+    ('Indices & roots', ['$a^m \\times a^n = a^{m+n}$ · $a^m \\div a^n = a^{m-n}$ · $a^0 = 1$',
+                         '$\\sqrt{ab} = \\sqrt{a} \\times \\sqrt{b}$',
+                         '$x^2 = 49 \\Rightarrow x = 7$ or $x = -7$',
+                         '<span class="star">★</span> $2^{-3} = \\dfrac{1}{2^3} = \\dfrac{1}{8}$']),
+    ('Algebra', ['Like terms: same letters, same powers',
+                 '$a(b + c) = ab + ac$ · $-(x - 5) = -x + 5$',
+                 'Factorise: take out the HCF, then check by expanding',
+                 '<span class="star">★</span> $(a + b)(c + d) = ac + ad + bc + bd$']),
+    ('Equations & formulas', ['Do the same to both sides',
+                              'Unknowns on both sides: collect them on one side first',
+                              'Formulas: substitute, then solve',
+                              'Check your answer by substituting it back in']),
+    ('Measurement', ['Pythagoras: $c^2 = a^2 + b^2$ ($c$ = hypotenuse)',
+                     '$A = \\frac{1}{2}bh$ · $A = \\frac{h}{2}(a + b)$ · kite $A = \\frac{1}{2}xy$',
+                     'Circle: $C = 2\\pi r$, $A = \\pi r^2$',
+                     'Prism $V = Ah$ · cylinder $V = \\pi r^2 h$',
+                     '$1 \\text{ m}^3 = 1000$ L · $1$ kL $= 1000$ L',
+                     '<span class="star">★</span> $\\sin\\theta = \\frac{O}{H}$, $\\cos\\theta = \\frac{A}{H}$, $\\tan\\theta = \\frac{O}{A}$']),
+    ('Rates & graphs', ['Speed = distance ÷ time',
+                        'Share in a ratio: add the parts, find one part',
+                        'A point is on a line if it fits the equation',
+                        '<span class="star">★</span> Gradient $= \\dfrac{\\text{rise}}{\\text{run}}$; $y = mx + c$: $m$ = gradient, $c$ = $y$-intercept']),
+    ('Angles, data & chance', ['Straight line $180^\\circ$ · point $360^\\circ$ · vertically opposite angles are equal',
+                                 'Parallel lines: corresponding, alternate equal; co-interior add to $180^\\circ$',
+                                 'Triangle $180^\\circ$ · quadrilateral $360^\\circ$',
+                                 'Median: middle value in order · $P(\\text{not } E) = 1 - P(E)$',
+                                 '<span class="star">★</span> IQR $= Q_3 - Q_1$ (medians of the lower and upper halves)']),
+    ('In context', ['Simple interest $I = Prn$ ($r$ as a decimal)',
+                    '<span class="star">★</span> Time-and-a-half: $1.5 \\times$ the hourly rate',
+                    '<span class="star">★</span> Weekly pay = yearly salary ÷ 52',
+                    'Worded problems: write what you know, choose the operation, answer with units']),
+]
