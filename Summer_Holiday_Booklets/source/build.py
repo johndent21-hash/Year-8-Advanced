@@ -30,9 +30,25 @@ def prep(key):
     return bk
 
 
+def ensure_dots(here):
+    """Dot-grid tiles used as the working-space background (one shared PNG keeps the PDF small)."""
+    from PIL import Image, ImageDraw
+    os.makedirs(os.path.join(here, 'art'), exist_ok=True)
+    for name, col in [('dots.png', (180, 188, 199)), ('dots_gold.png', (220, 199, 126))]:
+        p = os.path.join(here, 'art', name)
+        if os.path.exists(p):
+            continue
+        S = 4
+        im = Image.new('RGBA', (13 * S, 12 * S), (255, 255, 255, 0))
+        r, cx, cy = 0.95 * S, 2.5 * S, 4 * S
+        ImageDraw.Draw(im).ellipse([cx - r, cy - r, cx + r, cy + r], fill=col + (255,))
+        im.save(p, optimize=True)
+
+
 def build(key, draft=False):
     bk = prep(key)
     here = os.path.dirname(os.path.abspath(__file__))
+    ensure_dots(here)
     art = os.path.join(here, 'art', key)
     html = render.build_html(bk, 'file://' + art)
     os.makedirs(os.path.join(here, 'out'), exist_ok=True)
